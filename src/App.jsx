@@ -12,7 +12,7 @@ import Nav from "./Components/Nav";
 export default function App() {
   return (
     <>
-      <div>
+      <div className="m-6">
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

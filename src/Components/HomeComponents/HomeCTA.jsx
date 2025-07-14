@@ -1,5 +1,11 @@
 import React from "react";
 
 export default function HomeCTA() {
-  return <div>HomeCTA</div>;
+  return (
+    <>
+      <div className="">
+        <div className="container mx-auto">Reach Us out</div>
+      </div>
+    </>
+  );
 }

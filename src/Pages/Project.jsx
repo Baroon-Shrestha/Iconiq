@@ -1,5 +1,10 @@
 import React from "react";
+import ProjectsMain from "../Components/ProjectsComponents/ProjectsMain";
 
 export default function Project() {
-  return <div>Project</div>;
+  return (
+    <div>
+      <ProjectsMain />
+    </div>
+  );
 }
