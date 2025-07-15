@@ -22,7 +22,7 @@ export default function ProjectCard({ project, index, onHover, onLeave }) {
 
       <div>
         <h3 className="text-xl font-semibold">{project.title}</h3>
-        <p className="text-gray-500 hidden group-hover:block">
+        <p className="text-gray-500 idden grop-hover:block">
           {project.subtitle}
         </p>
       </div>

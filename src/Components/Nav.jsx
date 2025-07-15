@@ -50,6 +50,11 @@ export default function Nav() {
                 Work
               </div>
             </Link>
+            <Link to="/client">
+              <div className="hover:text-red-600 cursor-pointer transition-colors">
+                Clients
+              </div>
+            </Link>
             <Link to="/services">
               <div className="hover:text-red-600 cursor-pointer transition-colors">
                 Services
@@ -122,6 +127,14 @@ export default function Nav() {
                   onClick={closeSidebar}
                 >
                   Work
+                </div>
+              </Link>
+              <Link to="/client">
+                <div
+                  className="px-4 py-3 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition-colors text-lg font-medium"
+                  onClick={closeSidebar}
+                >
+                  Clients
                 </div>
               </Link>
               <Link to="/services">

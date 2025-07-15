@@ -30,7 +30,7 @@ const CoreServicesData = [
     title: "Web Development",
     subtitle: "Building scalable websites.",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quas maxime, in sequi fuga labore eaque, rerum maiores ipsa enim iure nulla esse earum officiis aperiam vel doloremque neque. Corrupti quis animi totam tempora commodi at earum laboriosam quam quidem fugiat incidunt reiciendis consectetur pariatur sequi facere libero, ipsum dicta.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quas maxime, in sequi fuga labore eaque, rerum maiores ipsa enim iure nulla esse earum officiis aperiam vel doloremque neque. Corrupti quis animi totam tempora commodi at earum laboriosam quam quidem fugiat incidunt reiciendis consectetur pariatur sequi facere libero, ipsum dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quas maxime, in sequi fuga labore eaque, rerum maiores ipsa enim iure nulla esse earum officiis aperiam vel doloremque neque. Corrupti quis animi totam tempora commodi at earum laboriosam quam quidem fugiat incidunt reiciendis consectetur pariatur sequi facere libero, ipsum dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quas maxime, in sequi fuga labore eaque, rerum maiores ipsa enim iure nulla esse earum officiis aperiam vel doloremque neque. Corrupti quis animi totam tempora commodi at earum laboriosam quam quidem fugiat incidunt reiciendis consectetur pariatur sequi facere libero, ipsum dicta.",
     title2: "What we provide",
     points: ["responsive websites", "eCommerce platforms", "CMS integrations"],
     image: "Uploads/img1.jpeg",
@@ -70,7 +70,7 @@ export default function CoreServices() {
         <div className="text-2xl md:text-4xl text-center">
           Our <span className="logo">Core </span>Services{" "}
         </div>
-        <section className=" px-4 py-32 space-y-[20vh]">
+        <section className=" px-4 py-16 space-y-[20vh]">
           {CoreServicesData.map((item, index) => (
             <div
               key={item.id}

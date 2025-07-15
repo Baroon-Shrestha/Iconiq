@@ -1,12 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import AboutHero from "./AboutHero";
-import {
-  FaUsers,
-  FaHeadset,
-  FaHandshake,
-  FaDollarSign,
-} from "react-icons/fa";
+import { FaUsers, FaHeadset, FaHandshake, FaDollarSign } from "react-icons/fa";
 
 export default function AboutMediaContent() {
   const ref = useRef();
@@ -33,7 +28,7 @@ export default function AboutMediaContent() {
   });
 
   const scale = useTransform(smoothScroll, [0, 0.5, 1], [0.8, 0.95, 1.1]);
-  const width = useTransform(smoothScroll, [0, 0.5, 1], ["80%", "90%", "100%"]); 
+  const width = useTransform(smoothScroll, [0, 0.5, 1], ["80%", "90%", "100%"]);
 
   const team = [
     { name: "Roshan", role: "Founder", img: "/Uploads/Roshan.png" },
@@ -45,17 +40,37 @@ export default function AboutMediaContent() {
   ];
 
   const features = [
-    { title: "Experienced Team", description: "Years of industry experience delivering innovative solutions.", icon: <FaUsers />, color: "from-pink-400 to-pink-600" },
-    { title: "24/7 Support", description: "Fast and reliable customer support at all times.", icon: <FaHeadset />, color: "from-blue-400 to-blue-600" },
-    { title: "Trusted by Clients", description: "We’ve built strong, lasting relationships globally.", icon: <FaHandshake />, color: "from-green-400 to-green-600" },
-    { title: "Affordable Pricing", description: "Premium services at prices that fit your budget.", icon: <FaDollarSign />, color: "from-yellow-400 to-yellow-600" },
+    {
+      title: "Experienced Team",
+      description:
+        "Years of industry experience delivering innovative solutions.",
+      icon: <FaUsers />,
+      color: "from-pink-400 to-pink-600",
+    },
+    {
+      title: "24/7 Support",
+      description: "Fast and reliable customer support at all times.",
+      icon: <FaHeadset />,
+      color: "from-blue-400 to-blue-600",
+    },
+    {
+      title: "Trusted by Clients",
+      description: "We’ve built strong, lasting relationships globally.",
+      icon: <FaHandshake />,
+      color: "from-green-400 to-green-600",
+    },
+    {
+      title: "Affordable Pricing",
+      description: "Premium services at prices that fit your budget.",
+      icon: <FaDollarSign />,
+      color: "from-yellow-400 to-yellow-600",
+    },
   ];
 
   return (
     <>
       {/* Hero & Media */}
       <div className="relative">
-        <AboutHero />
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,12 +121,19 @@ export default function AboutMediaContent() {
               Our <span className="text-pink-500">Mission</span>
             </h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              At Iconiq, we empower businesses with cutting-edge technology and creative solutions to drive growth and success.
+              At Iconiq, we empower businesses with cutting-edge technology and
+              creative solutions to drive growth and success.
             </p>
             <ul className="list-disc text-gray-700 ml-6 space-y-2">
-              <li><strong>Innovation:</strong> Constantly evolving with trends</li>
-              <li><strong>Quality:</strong> Delivering top-notch services</li>
-              <li><strong>Growth:</strong> Helping businesses scale</li>
+              <li>
+                <strong>Innovation:</strong> Constantly evolving with trends
+              </li>
+              <li>
+                <strong>Quality:</strong> Delivering top-notch services
+              </li>
+              <li>
+                <strong>Growth:</strong> Helping businesses scale
+              </li>
             </ul>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
@@ -140,12 +162,20 @@ export default function AboutMediaContent() {
               Our <span className="text-yellow-500">Vision</span>
             </h2>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              To be a global leader in delivering innovative digital experiences that create lasting impact for businesses worldwide.
+              To be a global leader in delivering innovative digital experiences
+              that create lasting impact for businesses worldwide.
             </p>
             <ul className="list-disc text-gray-700 ml-6 space-y-2">
-              <li><strong>Sustainability:</strong> Long-term positive impact</li>
-              <li><strong>Leadership:</strong> Setting new industry standards</li>
-              <li><strong>Excellence:</strong> Striving for perfection in every project</li>
+              <li>
+                <strong>Sustainability:</strong> Long-term positive impact
+              </li>
+              <li>
+                <strong>Leadership:</strong> Setting new industry standards
+              </li>
+              <li>
+                <strong>Excellence:</strong> Striving for perfection in every
+                project
+              </li>
             </ul>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-start">
@@ -173,7 +203,8 @@ export default function AboutMediaContent() {
             Meet Our <span className="text-pink-500">Team</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-12">
-            A team of passionate innovators, developers, and marketers dedicated to your success.
+            A team of passionate innovators, developers, and marketers dedicated
+            to your success.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
@@ -212,7 +243,8 @@ export default function AboutMediaContent() {
             Why <span className="text-pink-400">Choose Us?</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-12">
-            At Iconiq, we focus on delivering high-quality solutions that empower businesses globally.
+            At Iconiq, we focus on delivering high-quality solutions that
+            empower businesses globally.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {features.map((feature, index) => (

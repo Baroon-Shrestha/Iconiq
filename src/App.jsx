@@ -8,6 +8,7 @@ import Contact from "./Pages/Contact";
 import Navbar from "./Components/Navbar"; // Not used in this snippet, can be removed if unused
 import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
+import Client from "./Pages/Client";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/project" element={<Project />} />
+          <Route path="/client" element={<Client />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

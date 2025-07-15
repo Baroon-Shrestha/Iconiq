@@ -9,11 +9,13 @@ import ParallaxEffect from "./ParallaxEffect";
 import Parallax from "./Parallax";
 import Testimonials from "./Testimonials";
 import Clients from "./Clients";
+import HeroSection from "./HeroSection";
 
 export default function HomeMain() {
   return (
     <div className="">
-      <HomeHero />
+      {/* <HomeHero /> */}
+      <HeroSection />
       <Intro />
       <AnimatedMediaSection />
       <ParallaxEffect />
