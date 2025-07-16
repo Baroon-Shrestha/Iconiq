@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Cursor from "../HelperComponents/Cursor";
 import ProjectCard from "../HelperComponents/ProjectCard";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
     image: "/Uploads/hero.jpeg",
-    title: "Snapchat",
+    title: "Momiji International Academy",
     subtitle: "Integrating AR to elevate social commerce",
   },
   {
     image: "/Uploads/img1.jpeg",
-    title: "Joe & The Juice",
+    title: "Kansai International Language Center",
     subtitle: "Host your child's birthday at Joe",
   },
   {
     image: "/Uploads/img2.jpeg",
-    title: "Brand X",
+    title: "Nisani",
     subtitle: "Immersive product experience",
   },
   {
     image: "/Uploads/img3.jpeg",
-    title: "Airbnb",
+    title: "Kings motors Ltd pvt.",
     subtitle: "Design system modernization",
   },
 ];
@@ -61,11 +62,20 @@ export default function HomeProjects() {
 
   return (
     <div className="w-full bg-white">
-      <div className="container mx-auto px-6 py-20">
-        <div className="text-4xl text-center mb-16">
-          Our <span className="logo">Projects</span>
+      <div className="container mx-auto px-6 pt-20">
+        <div className="flex items-center flex-col justify-center mb-12 gap-4">
+          <div className="text-4xl text-center ">
+            Our{" "}
+            <span className="logo bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text">
+              Projects
+            </span>
+          </div>
+          <div className="text-center text-base md:text-xl font-extralight max-w-3xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel natus
+            earum magni. Eligendi enim saepe voluptate consequuntur at repellat
+            odio!
+          </div>
         </div>
-
         <Cursor
           isVisible={cursorState.isVisible}
           position={cursorState.position}
@@ -83,6 +93,13 @@ export default function HomeProjects() {
             />
           ))}
         </div>
+        <Link to="/project">
+          <div className="mt-16 text-center">
+            <button className="text-2xl font-medium text-gray-600 border-b border-gray-300 hover:text-black hover:border-black transition-all duration-300">
+              View all Projects →
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );

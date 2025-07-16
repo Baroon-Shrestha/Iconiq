@@ -47,6 +47,9 @@ const CoreServicesData = [
   },
 ];
 
+// #C848C1
+// #54A6F9
+
 export default function CoreServices() {
   const wrapperRefs = useRef([]);
 
@@ -68,7 +71,11 @@ export default function CoreServices() {
     <>
       <div className="container mx-auto py-12 ">
         <div className="text-2xl md:text-4xl text-center">
-          Our <span className="logo">Core </span>Services{" "}
+          Our{" "}
+          <span className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent logo">
+            Core{" "}
+          </span>
+          Services{" "}
         </div>
         <section className=" px-4 py-16 space-y-[20vh]">
           {CoreServicesData.map((item, index) => (

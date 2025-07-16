@@ -52,7 +52,10 @@ export default function Clients() {
       <div className="container mx-auto px-4 text-center">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold mb-12">
-          Our <span className="text-gray-600 logo">Clients</span>
+          Our{" "}
+          <span className="bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text logo">
+            Clients
+          </span>
         </h2>
 
         {/* Grid */}
@@ -64,7 +67,7 @@ export default function Clients() {
                 hoveredClient === null
                   ? "opacity-100"
                   : hoveredClient === client.id
-                  ? "opacity-100 text-gray-600"
+                  ? "opacity-100 bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text"
                   : "opacity-30"
               }`}
               onMouseEnter={() => setHoveredClient(client.id)}
@@ -88,13 +91,6 @@ export default function Clients() {
               )}
             </div>
           ))}
-        </div>
-
-        {/* View All */}
-        <div className="mt-16">
-          <button className="text-2xl font-medium text-gray-600 border-b border-gray-300 hover:text-black hover:border-black transition-all duration-300">
-            View all clients →
-          </button>
         </div>
       </div>
     </section>

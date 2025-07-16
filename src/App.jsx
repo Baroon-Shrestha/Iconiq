@@ -9,11 +9,12 @@ import Navbar from "./Components/Navbar"; // Not used in this snippet, can be re
 import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import Client from "./Pages/Client";
-
+import ScrollToTop from "./Components/HelperComponents/ScrollToTop";
 export default function App() {
   return (
     <>
       <div className="m-6">
+        <ScrollToTop />
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

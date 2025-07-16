@@ -122,7 +122,7 @@ export default function AboutHero() {
                 // }}
                 className="text-6xl font-bold logo mb-4 drop-shadow-lg"
               >
-                Iconiq
+                About Iconiq
               </motion.h1>
             </AnimatePresence>
 
@@ -219,24 +219,6 @@ export default function AboutHero() {
               ))}
             </AnimatePresence>
           </div>
-        </div>
-
-        {/* Progress Indicator */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {initialCards.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`w-2 h-2 rounded-full ${
-                index === currentBg ? "bg-white" : "bg-white/40"
-              }`}
-              initial={{ scale: 0.8, opacity: 0.6 }}
-              animate={{
-                scale: index === currentBg ? 1.2 : 0.8,
-                opacity: index === currentBg ? 1 : 0.6,
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          ))}
         </div>
       </div>
     </div>

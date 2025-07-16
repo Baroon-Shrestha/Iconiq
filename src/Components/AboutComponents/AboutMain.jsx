@@ -7,7 +7,7 @@ export default function AboutMain() {
   return (
     <div>
       <AboutHero />
-      <WhoAreWe />
+      {/* <WhoAreWe /> */}
       <AboutMediaContent />
     </div>
   );

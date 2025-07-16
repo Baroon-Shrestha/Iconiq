@@ -41,14 +41,16 @@ const services = [
 ];
 
 export default function HomeServices() {
+  //
+  // #54A6F9
   return (
-    <section className="w-full min-h-[90vh] rounded-4xl bg-gradient-to-b from-red-900 to-black py-20 px-4">
+    <section className="w-full h-scren rounded-4xl bg-gradient-to-t from-[#4b0082] to-[#54A6F9] py-20 px-4">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl text-white md:text-5xl font-extrabold mb-12 tracking-tight">
           One Stop Solution for You.
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <div
               key={index}
@@ -61,6 +63,11 @@ export default function HomeServices() {
               <p className="text-gray-600 text-sm">{service.description}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-16 hover:-translate-y-1 ease-in-out duration-500">
+          <button className="px-6 py-2 text-xl md:text-3xl font-bold bg-white text-[#4b0082] rounded-2xl">
+            Explore More
+          </button>
         </div>
       </div>
     </section>
