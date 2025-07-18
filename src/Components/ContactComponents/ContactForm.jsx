@@ -191,11 +191,6 @@ export default function ContactForm() {
                       icon: <FaLinkedinIn />,
                       color: "hover:bg-blue-700",
                     },
-                    {
-                      href: "https://twitter.com",
-                      icon: <FaTwitter />,
-                      color: "hover:bg-blue-400",
-                    },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
@@ -209,6 +204,9 @@ export default function ContactForm() {
                       {social.icon}
                     </motion.a>
                   ))}
+                </div>
+                <div className="w-42 h-42 mt-6">
+                  <img src="Uploads/QR.png" alt="" className="boject-cover" />
                 </div>
               </motion.div>
             </div>

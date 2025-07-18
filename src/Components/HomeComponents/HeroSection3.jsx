@@ -101,20 +101,29 @@ export default function HeroSection3() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 pt-[14rem] relative z-10 h-full">
+      <div className="container mx-auto px-6 pt-[10rem] relative z-10 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Left Content */}
           <div className="flex items-start gap-y-2 flex-col max-w-2xl">
             <motion.p
-              className="text-xl max-w-xl leading-relaxed text-white"
+              className="text-3xl max-w-xl leading-relaxed text-white font-extrabold"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Iconiq ideas. Real Results
+              Iconiq ideas • Real Results
             </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              className="text-2xl max-w-xl leading-relaxed -mb-4 font-bold rounded-full text-transparent bg-clip-text bg-gradient-to-r from-[#C848C1] to-[#54A6F9]"
+            >
+              Welcome To
+            </motion.p>
+
             <motion.h1
-              className="text-4xl md:text-7xl font-bold leading-tight capitalize text-white logo"
+              className="text-4xl md:text-7xl font-bold  leading-tight capitalize text-white logo"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -124,14 +133,16 @@ export default function HeroSection3() {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl max-w-xl leading-relaxed text-white"
+              className="text-lg md:text-xl max-w-3xl leading-relaxed text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              quis expedita minus beatae accusantium quia tenetur illo fugit nam
-              natus.
+              a team of creative and dedicated individuals that brings your
+              ideads to life. Whether, It's related to build sleek websites,
+              designing eye-catching graphics or running smart and modern
+              digital marketing campagins. <br />
+              <span className="">We are here to help you your brand grow.</span>
             </motion.p>
 
             <motion.div
@@ -254,30 +265,6 @@ export default function HeroSection3() {
                   })}
                 </AnimatePresence>
               </motion.div>
-
-              {/* Orbital Path Circle */}
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                style={{
-                  width: "460px",
-                  height: "460px",
-                  left: "-230px",
-                  top: "-230px",
-                }}
-              >
-                <motion.circle
-                  cx="230"
-                  cy="230"
-                  r={circleRadius}
-                  fill="none"
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth="1"
-                  strokeDasharray="2,4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 2, delay: 1.5 }}
-                />
-              </svg>
             </div>
           </div>
         </div>

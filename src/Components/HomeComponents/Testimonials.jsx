@@ -29,27 +29,6 @@ const clientTestimonials = [
     position: "Japanese Educational Consultancy",
     image: "/uploads/client4.jpg",
   },
-  {
-    quote:
-      "You truly transformed our academy's digital presence. From digital marketing to web development, everything feels new, modern and user-friendly. Our online presence as well as inquiries have definitely increased.",
-    name: "Omni",
-    position: "Educational Consultancy",
-    image: "/uploads/client5.jpg",
-  },
-  {
-    quote:
-      "We needed everything — brand strategy, digital marketing, and a functional car sales website. You delivered across all fronts, and it’s made a big difference for our business.",
-    name: "Kings Motors",
-    position: "Automobile Sales Platform",
-    image: "/uploads/client6.jpg",
-  },
-  {
-    quote:
-      "Your digital solutions and marketing efforts helped Dollersewa become more reliable and recognizable. From backend systems to branding, we’re happy with the outcome.",
-    name: "Dollersewa",
-    position: "Online Services Platform",
-    image: "/uploads/client7.jpg",
-  },
 ];
 
 export default function Testimonials() {

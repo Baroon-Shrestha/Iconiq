@@ -6,21 +6,21 @@ const projectsData = [
   {
     image: "Uploads/momiji2.jpg",
     title: "Momiji International Academy",
-    subtitle: "Japanese Language Canter",
+    subtitle: "Japanese Language Center",
     description:
-      "A revolutionary approach to social commerce that leverages augmented reality to create immersive shopping experiences. This project explores how AR filters and interactive elements can transform the way users discover and purchase products through social media platforms.",
-    tags: ["AR/VR", "Social Commerce", "Mobile App", "React Native"],
-    year: "2024",
+      "A dedicated platform for Japanese language education, offering courses, resources, and interactive learning experiences for students aspiring to master Japanese at Momiji International Academy.",
+    tags: ["Social Commerce", "Mobile Responsive Application"],
+    year: "2025",
     client: "Momiji",
   },
   {
     image: "Uploads/kansai.png",
-    title: "Kansai International Japanese Langauge Center",
-    subtitle: "Japanese Langauge Center",
+    title: "Kansai International Japanese Language Center",
+    subtitle: "Japanese Language Center",
     description:
-      "A comprehensive digital experience designed to make birthday party planning effortless for parents. The platform integrates booking systems, customizable party packages, and real-time coordination tools to create memorable celebrations.",
-    tags: ["UX/UI Design", "Booking System", "Family App", "React"],
-    year: "2024",
+      "A modern, user-friendly website for Kansai International Japanese Language Center, providing course details, enrollment options, and student resources to support language learning journeys.",
+    tags: ["UX/UI Design", "social Commerce"],
+    year: "2025",
     client: "Kansai",
   },
   {
@@ -28,9 +28,9 @@ const projectsData = [
     title: "Kings Motors Pvt. Ltd",
     subtitle: "Cars Recondition Showroom",
     description:
-      "An innovative e-commerce platform that reimagines online shopping through immersive 3D product visualization, virtual try-on features, and AI-powered recommendations to create a premium digital retail experience.",
-    tags: ["3D Visualization", "E-commerce", "AI/ML", "Three.js"],
-    year: "2023",
+      "A complete digital showcase for Kings Motors Pvt. Ltd, featuring reconditioned cars with detailed listings, pricing, and customer service features to enhance the buying experience.",
+    tags: ["Inventory Managemnet System", "E-commerce"],
+    year: "2025",
     client: "Kings Motors",
   },
   {
@@ -38,20 +38,20 @@ const projectsData = [
     title: "Doller Sewa",
     subtitle: "Affordable Digital Services Platform",
     description:
-      "An innovative e-commerce platform that reimagines online shopping through immersive 3D product visualization, virtual try-on features, and AI-powered recommendations to create a premium digital retail experience.",
-    tags: ["Educational", "Digital Platform"],
+      "An online platform offering affordable digital services including graphic design, social media management, and web solutions tailored to small businesses and individuals.",
+    tags: ["E-commerce", "Digital Platform"],
     year: "2025",
     client: "Doller Sewa",
   },
   {
     image: "Uploads/cover3.jpeg",
-    title: "Omni",
+    title: "Omni Global",
     subtitle: "Educational Consultancy",
     description:
-      "A comprehensive overhaul of Airbnb's design system, focusing on accessibility, scalability, and consistency across all platforms. The project involved creating new component libraries, design tokens, and documentation.",
-    tags: ["Design Systems", "Accessibility", "Component Library", "Figma"],
+      "A comprehensive website for Omni Educational Consultancy, featuring student guidance services, visa processing information, and university application support for aspiring international students.",
+    tags: ["UX/UI Design", "social Commerce", "Mobile Responsive Application"],
     year: "2023",
-    client: "Airbnb",
+    client: "Omni",
   },
 ];
 
@@ -178,9 +178,8 @@ export default function AllProjects() {
           </span>
         </div>
         <div className="max-w-4xl text-lg md:text-xl font-extralight">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-          eligendi recusandae suscipit dolor laborum praesentium quod omnis
-          adipisci aut! Corporis?
+          Showcasing our collection of ideas that we've brought to life —
+          crafted with strategy, creativity, and purpose.
         </div>
       </div>
 

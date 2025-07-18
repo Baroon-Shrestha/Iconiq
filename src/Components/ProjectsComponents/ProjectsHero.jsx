@@ -4,39 +4,31 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 const initialCards = [
   {
     title: "Fashion E-Commerce Platform",
-    subtitle: "Design • Development • SEO",
+    subtitle: "Design • Development",
     description:
       "We crafted a high-conversion fashion e-commerce site with a custom user experience, seamless checkout, and integrated SEO strategies.",
-    image: "/uploads/fashion-ecom-thumb.jpg",
-    bgImage: "/uploads/fashion-ecom-bg.jpg",
-    color: "from-indigo-600 to-purple-600",
+    bgImage: "/Uploads/services.jpg",
   },
   {
     title: "Social Media Growth Campaign",
     subtitle: "Instagram • Reels • Ads",
     description:
       "Our reels and motion graphics content helped a local brand triple its engagement, gaining over 15K organic followers in 3 months.",
-    image: "/uploads/social-growth-thumb.jpg",
-    bgImage: "/uploads/social-growth-bg.jpg",
-    color: "from-green-600 to-teal-600",
+    bgImage: "/Uploads/services3.jpg",
   },
   {
-    title: "Brand Identity for Tech Startup",
-    subtitle: "Logo • Visuals • Brand Kit",
+    title: "Brand Identity for Startups",
+    subtitle: "Logo • Visuals",
     description:
       "We delivered a complete branding kit including logo, color palette, and social assets—helping the startup stand out in a crowded market.",
-    image: "/uploads/tech-brand-thumb.jpg",
-    bgImage: "/uploads/tech-brand-bg.jpg",
-    color: "from-orange-600 to-red-600",
+    bgImage: "/Uploads/services4.png",
   },
   {
-    title: "Corporate Motion Graphics",
-    subtitle: "Explainer Videos • Voiceover",
+    title: "Poster and Motion Graphics",
+    subtitle: "Poster • Brochure • Motion",
     description:
       "We produced polished explainer videos and product animations for enterprise clients, simplifying complex processes through motion design.",
-    image: "/uploads/motion-graphics-thumb.jpg",
-    bgImage: "/uploads/motion-graphics-bg.jpg",
-    color: "from-pink-600 to-rose-600",
+    bgImage: "/Uploads/reels.jpg",
   },
 ];
 
@@ -44,6 +36,29 @@ export default function ProjectsHero() {
   const [currentBg, setCurrentBg] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const nextSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentBg((prev) => (prev + 1) % initialCards.length);
+      setProgress(0);
+      setIsTransitioning(false);
+    }, 300);
+  };
+
+  const prevSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentBg(
+        (prev) => (prev - 1 + initialCards.length) % initialCards.length
+      );
+      setProgress(0);
+      setIsTransitioning(false);
+    }, 300);
+  };
 
   useEffect(() => {
     let interval;
@@ -51,8 +66,7 @@ export default function ProjectsHero() {
 
     if (isPlaying) {
       interval = setInterval(() => {
-        setCurrentBg((prev) => (prev + 1) % initialCards.length);
-        setProgress(0);
+        nextSlide();
       }, 5000);
 
       progressInterval = setInterval(() => {
@@ -69,64 +83,110 @@ export default function ProjectsHero() {
       clearInterval(interval);
       clearInterval(progressInterval);
     };
-  }, [isPlaying]);
+  }, [isPlaying, isTransitioning]);
 
   const currentCard = initialCards[currentBg];
 
-  const nextSlide = () => {
-    setCurrentBg((prev) => (prev + 1) % initialCards.length);
-    setProgress(0);
-  };
-
-  const prevSlide = () => {
-    setCurrentBg(
-      (prev) => (prev - 1 + initialCards.length) % initialCards.length
-    );
-    setProgress(0);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentBg(index);
-    setProgress(0);
-  };
-
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
-
   return (
-    <div className="relative min-h-[80vh] flex flex-col justify-end rounded-3xl text-white overflow-hidden group">
-      {/* Background Carousel */}
-      {/* Background Carousel with Slide Animation */}
+    <div className="relative min-h-[60vh] md:min-h-[80vh] flex flex-col justify-end rounded-3xl text-white overflow-hidden group">
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        {/* Current slide */}
         <div
-          className="flex h-full transition-transform duration-700 ease-in-out"
+          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
+            isTransitioning
+              ? "transform -translate-x-full"
+              : "transform translate-x-0"
+          }`}
           style={{
-            width: `${initialCards.length * 100}%`,
-            transform: `translateX(-${
-              currentBg * (100 / initialCards.length)
-            }%)`,
+            backgroundImage: `url('${currentCard.bgImage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          {initialCards.map((card, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-full h-full relative"
-              style={{
-                backgroundImage: `url('${card.bgImage}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-40 rounded-3xl`}
-              />
-            </div>
-          ))}
+          <div
+            className={`absolute inset-0 bg-gradient-to-br  opacity-40 rounded-3xl`}
+          />
+        </div>
+
+        {/* Next slide (coming from right) */}
+        <div
+          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
+            isTransitioning
+              ? "transform translate-x-0"
+              : "transform translate-x-full"
+          }`}
+          style={{
+            backgroundImage: `url('${
+              initialCards[(currentBg + 1) % initialCards.length].bgImage
+            }')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${
+              initialCards[(currentBg + 1) % initialCards.length].color
+            } opacity-40 rounded-3xl`}
+          />
         </div>
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-3xl" />
+
+      {/* Navigation buttons */}
+      <div className="absolute top-1/2 transform -translate-y-1/2 left-4 z-20">
+        <button
+          onClick={prevSlide}
+          className="p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group-hover:opacity-100 opacity-0"
+          disabled={isTransitioning}
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      </div>
+
+      <div className="absolute top-1/2 transform -translate-y-1/2 right-4 z-20">
+        <button
+          onClick={nextSlide}
+          className="p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group-hover:opacity-100 opacity-0"
+          disabled={isTransitioning}
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Play/Pause button */}
+      <div className="absolute top-4 right-4 z-20">
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4" />
+          ) : (
+            <Play className="w-4 h-4" />
+          )}
+        </button>
+      </div>
+
+      {/* Progress indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {initialCards.map((_, index) => (
+          <div
+            key={index}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              index === currentBg ? "w-8 bg-white" : "w-2 bg-white/50"
+            }`}
+          >
+            {index === currentBg && (
+              <div
+                className="h-full bg-white/80 rounded-full transition-all duration-100"
+                style={{ width: `${progress}%` }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
       <div className="container mx-auto relative z-10 px-6 md:px-12 pb-16">
         <div className="max-w-4xl">
           <div

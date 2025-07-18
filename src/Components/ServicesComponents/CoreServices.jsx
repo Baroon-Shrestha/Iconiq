@@ -110,9 +110,8 @@ export default function CoreServices() {
             Services{" "}
           </div>
           <div className="text-lg md:text-xl font-extralight max-w-3xl text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            ipsum rem, autem, voluptatibus officia eveniet voluptas veniam nobis
-            iure magnam quasi ducimus distinctio ipsam molestias!
+            At Iconiq, we craft stunning designs, build powerful websites and
+            launch digital campaigns that drive results.
           </div>
         </div>
         <section className=" px-4 py-16 space-y-[20vh]">

@@ -10,36 +10,36 @@ const clientsData = [
   {
     id: 2,
     title: "Kansai",
-    description: "Leading automotive manufacturing solutions",
+    description: "Japanese language training center",
   },
   {
     id: 3,
     title: "Nisani",
-    description: "Innovative automotive technology company",
+    description: "Japanese language training center",
   },
   {
     id: 4,
     title: "Kings Motors",
-    description: "Luxury vehicle dealership and services",
+    description: "Vehicles Recondition and services",
   },
   {
     id: 5,
     title: "NS Motors",
-    description: "Multi-brand automotive dealership",
+    description: "Vehicles Recondition and Automotive services",
   },
   {
     id: 6,
-    title: "Iconiq",
-    description: "Creative automotive design specialists",
+    title: "Omni",
+    description: "Japanese language training center",
   },
   {
     id: 7,
-    title: "Omni",
-    description: "Comprehensive automotive logistics solutions",
+    title: "Ghar Sansar",
+    description: "...",
   },
   {
     id: 8,
-    title: "Vision Nepal",
+    title: "Sanskar Academy",
     description: "Automotive industry consulting services",
   },
 ];
@@ -48,7 +48,7 @@ export default function Clients() {
   const [hoveredClient, setHoveredClient] = useState(null);
 
   return (
-    <section className=" pt-18 -18 min-h-[60vh] ">
+    <section className=" py-18  ">
       <div className="container mx-auto px-4 text-center">
         {/* Heading */}
         <h2 className="text-4xl md:text-6xl font-extrabold mb-12">
@@ -59,11 +59,11 @@ export default function Clients() {
         </h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 items-center justify-center text-gray-400">
+        <div className="flex flex-wrap justify-center gap-10 text-gray-400">
           {clientsData.map((client) => (
             <div
               key={client.id}
-              className={`text-lg md:text-3xl  font-medium relative cursor-pointer transition-all duration-300 ${
+              className={`w-[22%] min-w-[150px] max-w-[220px] text-lg md:text-3xl font-medium relative cursor-pointer transition-all duration-300 ${
                 hoveredClient === null
                   ? "opacity-100"
                   : hoveredClient === client.id

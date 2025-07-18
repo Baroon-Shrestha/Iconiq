@@ -33,8 +33,12 @@ export default function Intro() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          We're{" "}
-          <span className="text-5xl md:text-7xl logo bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text">
+          We
+          <span className="logo bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text">
+            '
+          </span>
+          re{" "}
+          <span className="logo bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text">
             Iconiq
           </span>
         </div>

@@ -67,7 +67,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
           <div className="space-y-6 lg:col-span-1">
             <div>
-              <h2 className="text-3xl font-extrabold text-white mb-2 bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-extrabold mb-2 bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
                 Let's Talk
               </h2>
               <p className="text-white/80 text-sm">
@@ -81,7 +81,7 @@ export default function Footer() {
                 className="flex items-center space-x-3 text-lg hover:text-yellow-400 transition-all duration-300 group"
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>info@iconiq.com</span>
+                <span>Iconiqnp@gmail.com</span>
               </a>
 
               <button
@@ -92,7 +92,7 @@ export default function Footer() {
                 className="flex items-center space-x-3 text-lg hover:text-yellow-400 transition-all duration-300 group"
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>+977 981-2345678</span>
+                <span>+977 986‑4687572</span>
               </button>
             </div>
           </div>
@@ -159,14 +159,16 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+            <div className="w-42 h-42">
+              <img src="Uploads/QR.png" alt="" className="boject-cover" />
+            </div>
           </div>
         </div>
 
         <div className="border-t border-white/30 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/80">
-              © {currentYear} Iconiq. All rights reserved. | Made with ❤️ in
-              Nepal
+              © {currentYear} Iconiq. All rights reserved. | Made with ❤️.
             </p>
 
             <div className="flex items-center space-x-4">

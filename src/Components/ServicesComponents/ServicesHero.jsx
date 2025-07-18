@@ -72,7 +72,7 @@ export default function ServicesHero() {
   const currentCard = initialCards[currentBg];
 
   return (
-    <div className="relative min-h-[80vh] flex flex-col justify-end rounded-3xl text-white overflow-hidden group">
+    <div className="relative min-h-[60vh] md:min-h-[80vh]  flex flex-col justify-end rounded-3xl text-white overflow-hidden group">
       {/* Background Carousel */}
       <div className="absolute inset-0">
         {initialCards.map((card, index) => (

@@ -5,7 +5,7 @@ export default function PricingHero() {
   const backgroundImage = "Uploads/pricing.jpg";
 
   return (
-    <div className="relative min-h-[80vh] flex flex-col justify-end rounded-4xl text-white overflow-hidden">
+    <div className="relative min-h-[60vh] md:min-h-[80vh]  flex flex-col justify-end rounded-4xl text-white overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center rounded-4xl "
         style={{
@@ -28,10 +28,9 @@ export default function PricingHero() {
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
-              <motion.p className="text-sm font-light mt-4 max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Exercitationem, porro nemo! Veritatis velit voluptatum ab
-                distinctio, odio odit soluta natus.
+              <motion.p className="text-lg font-light mt-4 max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
+                Transparent, flexible pricing tailored to fit your brand’s
+                unique needs and goals.
               </motion.p>
             </AnimatePresence>
           </div>

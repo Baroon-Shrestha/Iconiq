@@ -13,92 +13,88 @@ import {
   FaTiktok,
   FaChartLine,
 } from "react-icons/fa";
+import PricingCTA from "./PricingCTA";
 
 export default function Pricing() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const services = [
     {
-      icon: <FaPaintBrush className="text-5xl text-purple-600 mb-6" />,
-      title: "Brand Identity Suite",
-      subtitle: "Complete Visual Identity",
-      price: "NPR 20,000",
-      originalPrice: "NPR 25,000",
-      period: "/package",
-      description:
-        "Build a memorable brand that stands out in the marketplace with our complete branding solution.",
-      features: [
-        "Logo design & variations",
-        "Brand color palette",
-        "Typography guidelines",
-        "Business card design",
-        "Brand guideline document",
-        "Social media templates",
-      ],
-      featured: true,
-      badge: "Best Value",
-      gradient: "from-purple-500 to-pink-500",
-      shadowColor: "shadow-purple-500/25",
-    },
-    {
       icon: <FaFacebook className="text-5xl text-blue-600 mb-6" />,
-      title: "Social Media Mastery",
-      subtitle: "Complete Digital Presence",
+      title: "Social Media Complete Handling",
+      subtitle: "End-to-End Management",
       price: "NPR 15,000",
-      originalPrice: "NPR 20,000",
+      originalPrice: "",
       period: "/month",
       description:
-        "Transform your social media presence with our comprehensive management across all major platforms.",
+        "End-to-end management of Facebook, Instagram, TikTok, including strategy, content planning, captions, hashtag strategy, and interaction.",
       features: [
-        "Facebook, Instagram & TikTok management",
+        "All major platforms",
         "Content strategy & planning",
-        "Engaging captions & hashtags",
-        "Community management",
-        "Analytics & reporting",
-        "Competitor analysis",
+        "Caption writing & hashtags",
+        "Community engagement",
+        "Consistent branding",
       ],
-      badge: "Most Popular",
+      badge: "Popular",
       gradient: "from-blue-500 to-cyan-500",
       shadowColor: "shadow-blue-500/25",
     },
     {
       icon: <FaGlobe className="text-5xl text-emerald-600 mb-6" />,
-      title: "Web Excellence",
-      subtitle: "Professional Online Presence",
+      title: "Website Creation & Updates",
+      subtitle: "Fully Responsive Websites",
       price: "NPR 30,000",
-      originalPrice: "NPR 40,000",
+      originalPrice: "",
       period: "/project",
       description:
-        "Get a stunning, high-performance website that converts visitors into customers.",
+        "Professional website design with SEO optimization, regular updates, and ongoing maintenance.",
       features: [
-        "Responsive design for all devices",
-        "SEO optimization included",
+        "Fully responsive design",
+        "SEO optimization",
+        "Regular updates",
         "Speed optimization",
-        "6 months free maintenance",
+        "6 months maintenance",
         "Content management system",
-        "SSL certificate & security",
       ],
       badge: "Premium",
       gradient: "from-emerald-500 to-teal-500",
       shadowColor: "shadow-emerald-500/25",
     },
-
+    {
+      icon: <FaPaintBrush className="text-5xl text-purple-600 mb-6" />,
+      title: "Complete Branding Package",
+      subtitle: "Visual Identity Setup",
+      price: "NPR 20,000",
+      originalPrice: "",
+      period: "/package",
+      description:
+        "Complete branding package including logo, brand colors, typography, tone, and brand guidelines.",
+      features: [
+        "Logo design",
+        "Brand colors & typography",
+        "Tone & voice setup",
+        "Brand guideline document",
+        "Visual identity setup",
+      ],
+      badge: "Best Value",
+      gradient: "from-purple-500 to-pink-500",
+      shadowColor: "shadow-purple-500/25",
+    },
     {
       icon: <FaUsers className="text-5xl text-rose-600 mb-6" />,
-      title: "Content & Growth",
-      subtitle: "Viral Content Creation",
+      title: "Social Media Posting & Growth",
+      subtitle: "Audience Engagement",
       price: "NPR 10,000",
-      originalPrice: "NPR 15,000",
+      originalPrice: "",
       period: "/month",
       description:
-        "Create viral content that engages your audience and drives massive growth.",
+        "High-quality post and reel creation, viral campaign planning, and audience engagement tactics.",
       features: [
-        "High-quality post creation",
-        "Reel & video production",
-        "Viral campaign strategies",
-        "Audience growth tactics",
-        "Engagement optimization",
-        "Trending content analysis",
+        "Post & reel creation",
+        "Viral campaign planning",
+        "Audience targeting",
+        "Engagement strategies",
+        "Growth optimization",
       ],
       badge: "Trending",
       gradient: "from-rose-500 to-pink-500",
@@ -106,45 +102,44 @@ export default function Pricing() {
     },
     {
       icon: <FaBullhorn className="text-5xl text-amber-600 mb-6" />,
-      title: "Ads That Convert",
-      subtitle: "ROI-Focused Advertising",
-      price: "NPR 10",
+      title: "Boosting/Ad Service",
+      subtitle: "Paid Ads Management",
+      price: "As per usage",
       originalPrice: "",
-      period: "/USD managed",
+      period: "/campaign",
       description:
-        "Maximize your advertising ROI with our expert campaign management and optimization.",
+        "Facebook/Instagram boosting. Charged per platform rate. Extra NPR 10 per USD applies if taken separately from a package.",
       features: [
         "Facebook & Instagram ads",
-        "Campaign strategy & setup",
-        "A/B testing & optimization",
-        "Detailed performance reports",
-        "Audience targeting",
+        "Campaign setup",
         "Budget optimization",
+        "A/B testing",
+        "Performance tracking",
       ],
       badge: "Performance",
       gradient: "from-amber-500 to-orange-500",
       shadowColor: "shadow-amber-500/25",
     },
     {
-      icon: <FaVideo className="text-5xl text-red-600 mb-6" />,
-      title: "Influencer Connect",
-      subtitle: "Creator Collaborations",
-      price: "Custom",
+      icon: <FaStar className="text-5xl text-yellow-500 mb-6" />,
+      title: "All-in-One Growth Package",
+      subtitle: "Complete Business Solution",
+      price: "Custom Pricing",
       originalPrice: "",
-      period: "/project",
+      period: "/project or monthly",
       description:
-        "Partner with the right influencers to amplify your brand reach and credibility.",
+        "A fully customized service package combining website creation, social media management, branding, advertising, and growth strategies tailored specifically for your business needs.",
       features: [
-        "Influencer research & outreach",
-        "Campaign planning & execution",
-        "Content collaboration",
-        "Performance tracking",
-        "Relationship management",
-        "ROI measurement",
+        "Website creation & maintenance",
+        "Social media management",
+        "Brand identity & guidelines",
+        "Post & reel content creation",
+        "Paid ads management",
+        "Audience engagement & analytics",
       ],
-      badge: "Custom",
-      gradient: "from-red-500 to-pink-500",
-      shadowColor: "shadow-red-500/25",
+      badge: "All-in-One",
+      gradient: "from-yellow-500 to-amber-500",
+      shadowColor: "shadow-yellow-500/25",
     },
   ];
 
@@ -275,28 +270,7 @@ export default function Pricing() {
           ))}
         </div>
       </div>
-
-      {/* Bottom CTA Section */}
-      <div className="container mx-auto px-4 mt-20">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join 500+ satisfied clients who've grown their business with our
-            services
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
-              <FaChartLine className="mr-2" />
-              View Our Results
-            </button> */}
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
-              Schedule Free Consultation
-            </button>
-          </div>
-        </div>
-      </div>
+      <PricingCTA />
     </div>
   );
 }

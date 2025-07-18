@@ -92,7 +92,7 @@ export default function MissionVisionSections() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] py-12 rounded-4xl"
+        className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] py-12 rounded-4xl px-4"
       >
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <motion.div
