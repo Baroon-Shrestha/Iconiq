@@ -27,9 +27,9 @@ export default function ContactHero() {
             </h1>
 
             <motion.p className="text-base md:text-xl font-light mt-4 max-w-3xl leading-relaxed text-white/90 drop-shadow-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-              reprehenderit quam iure esse nobis quo. Minus, earum? Nulla, amet
-              aspernatur!
+              We’re here to help you bring your ideas to life. Whether you have
+              questions, project inquiries, or just want to connect—reach out
+              and let’s start a conversation that moves your brand forward.
             </motion.p>
           </div>
         </div>
