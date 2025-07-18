@@ -148,7 +148,7 @@ export default function Pricing() {
       {/* Header Section */}
       <div className="container mx-auto px-4 mb-16">
         <div className="flex items-center flex-col gap-6">
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-tight">
+          <h1 className="text-4xl md:text-6xl text-center font-black text-gray-900 leading-tight">
             Pricing That
             <span className="bg-gradient-to-b from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent">
               {" "}

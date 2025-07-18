@@ -68,7 +68,7 @@ const PricingCTA = () => {
           </div>
 
           <h2
-            className={`text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent transition-all duration-1000 transform ${
+            className={`text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent transition-all duration-1000 transform ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -77,9 +77,9 @@ const PricingCTA = () => {
             Ready to Transform Your Business?
           </h2>
 
-          <div className="max-w-4xl mx-auto mb-10">
+          <div className="max-w-5xl mx-auto mb-10">
             <p
-              className={`text-xl mb-6 opacity-90 leading-relaxed transition-all duration-1000 delay-300 transform ${
+              className={`text-lg md:text-xl mb-6 opacity-90 leading-relaxed transition-all duration-1000 delay-300 transform ${
                 isVisible
                   ? "translate-y-0 opacity-90"
                   : "translate-y-8 opacity-0"

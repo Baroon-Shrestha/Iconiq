@@ -304,7 +304,7 @@ export default function MeetTheTeam() {
 
               <div>
                 <h4 className="text-lg font-semibold mb-3">Connect</h4>
-                <div className="flex space-x-3">
+                <div className="flex space-x-3 space-y-3 flex-wrap">
                   {selectedMember.socialLinks.map((social, index) => (
                     <a
                       key={index}

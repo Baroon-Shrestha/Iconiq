@@ -52,7 +52,7 @@ export default function Carousel({ data }) {
             exit="exit"
             className="p-4"
           >
-            <p className="text-3xl md:text-4xl font-light mb-10 leading-snug">
+            <p className="text-xl md:text-3xl font-light mb-10 leading-snug">
               “{testimonial.quote}”
             </p>
             <div>

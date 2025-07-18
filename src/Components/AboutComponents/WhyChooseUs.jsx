@@ -78,7 +78,7 @@ export default function WhyChooseUs({ features }) {
 
               {/* Content */}
               <div className="relative z-10 p-8">
-                <div className="flex items-start gap-6">
+                <div className="flex items-start flex-col gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-2xl border flex items-center justify-center ">
                       <span className="text-3xl">{feature.icon}</span>

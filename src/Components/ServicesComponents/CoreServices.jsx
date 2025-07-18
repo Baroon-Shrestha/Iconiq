@@ -114,16 +114,16 @@ export default function CoreServices() {
             launch digital campaigns that drive results.
           </div>
         </div>
-        <section className=" px-4 py-16 space-y-[20vh]">
+        <section className=" px-4 py-16 space-y-[8vh] md:space-y-[20vh]">
           {CoreServicesData.map((item, index) => (
             <div
               key={item.id}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+              className="grid grid-cols-1 md:grid-cols-2 gap- items-start"
               ref={(el) => (wrapperRefs.current[index] = el)}
             >
               {/* Left (pinned per section on desktop, normal flow on mobile) */}
               <div className="left-side relative">
-                <div className="md:sticky md:top-[15%] space-y-4 flex flex-col md:items-end items-center mb-8 md:mb-0">
+                <div className="md:sticky md:top-[15%] space-y-4 flex flex-col md:items-end items-center mb-4 md:mb-0">
                   <h2 className="text-3xl md:text-5xl font-bold text-center md:text-right">
                     {item.title}
                   </h2>
@@ -133,14 +133,13 @@ export default function CoreServices() {
                 </div>
               </div>
 
-              {/* Right (scrollable content) */}
               <div className="space-y-6 ">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full rounded-xl object-cover"
                 />
-                <p className="text-gray-700 text-lg text-justify">
+                <p className="text-gray-700 text-lg text-justify leading">
                   {item.description}
                 </p>
                 <div>

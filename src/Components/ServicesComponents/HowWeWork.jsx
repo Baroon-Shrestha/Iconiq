@@ -161,7 +161,7 @@ export default function HowWeWork() {
               >
                 {/* Image Section */}
                 <div
-                  className={`w-full md:w-5/12 px-4 mb-6 md:mb-0 ${
+                  className={`w-full md:w-5/12 px-4 my-6 md:mb-0 ${
                     isLeft ? "order-2 md:order-1" : "order-2 md:order-2"
                   }`}
                 >

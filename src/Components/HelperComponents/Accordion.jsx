@@ -18,7 +18,7 @@ export default function Accordion({ items }) {
             onClick={() => toggleAccordion(index)}
             className="w-full py-8 text-left flex items-center justify-between group hover:text-gray-900 transition-colors duration-200"
           >
-            <h3 className="text-2xl font-medium leading-tight pr-8">
+            <h3 className="text-lg md:text-2xl font-medium leading-tight pr-8">
               {item.question}
             </h3>
             <motion.div

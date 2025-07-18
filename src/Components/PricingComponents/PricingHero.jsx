@@ -22,13 +22,13 @@ export default function PricingHero() {
         <div className="grid grid-cols-1 md:grid-cols-4 items-center gap-12">
           <div className="col-span-3 pl-4">
             <AnimatePresence mode="wait">
-              <motion.h1 className="text-6xl font-bold logo mb-4 drop-shadow-lg">
+              <motion.h1 className="text-4xl md:text-6xl lg:text-7xl font-bold logo mb-4 drop-shadow-lg">
                 Our Pricing
               </motion.h1>
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
-              <motion.p className="text-lg font-light mt-4 max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
+              <motion.p className="text-lg md:text-xl font-light mt-4 max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
                 Transparent, flexible pricing tailored to fit your brand’s
                 unique needs and goals.
               </motion.p>
