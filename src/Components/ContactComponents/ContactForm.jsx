@@ -19,6 +19,7 @@ export default function ContactForm() {
     firstName: "",
     lastName: "",
     email: "",
+    number: "",
     subject: "",
     message: "",
   });
@@ -36,17 +37,24 @@ export default function ContactForm() {
     e.preventDefault();
 
     // Your WhatsApp number with country code for Nepal (977)
-    const phoneNumber = "9779860444420";
+    const phoneNumber = "9779812345678";
 
     // Build WhatsApp message
     const whatsappMessage = `
-📨 *New Contact Form Submission*
-----------------------------
-👤 *Name:* ${formData.firstName} ${formData.lastName}
-📧 *Email:* ${formData.email}
-📌 *Subject:* ${formData.subject}
-📝 *Message:* ${formData.message}
-`;
+    
+    ──────────────────────────────
+    Full Name: ${formData.firstName} ${formData.lastName}
+    Email Address: ${formData.email}
+    Phone Number: ${formData.number}
+    Subject: ${formData.subject}
+    
+    Message:
+    ${formData.message}
+    
+    Submitted On: ${new Date().toLocaleString()}
+    ──────────────────────────────
+    Please follow up with this inquiry as soon as possible.
+    `;
 
     // Encode message for URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -128,7 +136,9 @@ export default function ContactForm() {
                   <div>
                     <a href="mailto:info@iconiq.com">
                       <p className="text-gray-300 text-sm">Email</p>
-                      <p className="text-white font-medium">info@iconiq.com</p>
+                      <p className="text-white font-medium">
+                        Iconiqnp@gmail.com
+                      </p>
                     </a>
                   </div>
                 </div>
@@ -141,11 +151,11 @@ export default function ContactForm() {
                     <button
                       className="text-white font-medium"
                       onClick={() => {
-                        navigator.clipboard.writeText("+9779812345678");
+                        navigator.clipboard.writeText("+977 986-4687572");
                         toast.success("Phone number copied to clipboard!");
                       }}
                     >
-                      +977-981-XXXXXX
+                      +977 986-4687572
                     </button>
                   </div>
                 </div>
@@ -241,6 +251,10 @@ export default function ContactForm() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.8 }}
             >
+              <div className="mb-4 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded">
+                Please provide valid and accurate details. We will use your
+                contact information to respond to your inquiry.
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.div whileFocus={{ scale: 1.02 }} className="group">
                   <input
@@ -272,6 +286,17 @@ export default function ContactForm() {
                   name="email"
                   placeholder="Email Address"
                   value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
+                  required
+                />
+              </motion.div>
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                <input
+                  type="number"
+                  name="number"
+                  placeholder="Phone Number"
+                  value={formData.number}
                   onChange={handleInputChange}
                   className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
                   required

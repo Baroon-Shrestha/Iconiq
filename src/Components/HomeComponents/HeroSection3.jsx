@@ -72,7 +72,7 @@ export default function HeroSection3() {
   const totalAvatars = avatarData.length;
 
   return (
-    <div className="min-h-[60vh] md:min-h-[80vh] relative overflow-hidden rounded-4xl">
+    <div className="min-h-[60vh] pb-12 md:pb-0 md:min-h-[80vh] relative overflow-hidden rounded-4xl">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="flex h-full"
@@ -139,7 +139,7 @@ export default function HeroSection3() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               a team of creative and dedicated individuals that brings your
-              ideads to life. Whether, It's related to build sleek websites,
+              ideas to life. Whether, It's related to building sleek websites,
               designing eye-catching graphics or running smart and modern
               digital marketing campagins. <br />
               <span className="">We are here to help you your brand grow.</span>

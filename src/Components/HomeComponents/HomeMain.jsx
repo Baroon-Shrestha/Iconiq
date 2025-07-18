@@ -29,7 +29,7 @@ export default function HomeMain() {
       <Testimonials />
       {/* <HomeServices /> */}
       {/* <HomeProjects /> */}
-      <HomeCTA />
+      {/* <HomeCTA /> */}
       {/* <Parallax /> */}
     </div>
   );

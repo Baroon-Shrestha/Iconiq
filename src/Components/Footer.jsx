@@ -97,7 +97,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:col-span-2">
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 lg:col-span-2">
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-white flex items-center">
                 Explore

@@ -168,15 +168,15 @@ export default function Nav() {
                   <div
                     className={`text-center py-6 rounded-lg cursor-pointer transition-all duration-300 text-2xl font-medium border-b border-gray-100 relative group ${
                       isActiveLink(item.path)
-                        ? "bg-red-50 text-red-600"
-                        : "hover:bg-red-50 hover:text-red-600"
+                        ? "bg-red-50 bg-gradient-to-l from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text"
+                        : "hover:bg-gradient-to-l hover:from-[#C848C1] hoverto-[#54A6F9] hover:text-white"
                     }`}
                     onClick={closeSidebar}
                   >
                     {item.label}
                     {/* Mobile animated underline */}
                     <span
-                      className={`absolute left-1/2 bottom-4 h-0.5 bg-red-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${
+                      className={`absolute left-1/2 bottom-4 h-0.5 bg-red-100 transition-all duration-300 ease-out transform -translate-x-1/2 ${
                         isActiveLink(item.path)
                           ? "w-16"
                           : "w-0 group-hover:w-16"
