@@ -1,9 +1,8 @@
 import React from "react";
+import ContactForm from "./ContactForm";
 import ContactHero from "./ContactHero";
 import ContactIntro from "./ContactIntro";
-import ContactForm from "./ContactForm";
-
-export default function Contactmain() {
+export default function ContactMain() {
   return (
     <div>
       <ContactHero />
