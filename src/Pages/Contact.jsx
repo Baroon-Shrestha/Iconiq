@@ -1,10 +1,10 @@
 import React from "react";
-import ContactMain from "../Components/ContactComponents/Contactmain";
+import MainContact from "../Components/ContactComponents/MainContact";
 
 export default function Contact() {
   return (
     <div>
-      <ContactMain />
+      <MainContact />
     </div>
   );
 }
