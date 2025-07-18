@@ -107,24 +107,6 @@ export default function WhyChooseUs({ features }) {
             </div>
           ))}
         </div>
-
-        {/* Bottom CTA Section */}
-        <div className="text-center bg-gradient-to-r from-slate-800/30 to-slate-900/30 backdrop-blur-xl rounded-3xl p-12 border border-slate-700/30">
-          <h3 className="text-3xl font-bold mb-4 text-white">
-            Start Your Business Transformation With Us.
-          </h3>
-          <p className=" mb-8 max-w-3xl mx-auto">
-            Stop settling for mediocre results. Join with 50+ brands who've
-            already experienced the difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white rounded-full hover:scale-105   transition-all duration-300">
-              <p className="text-transparent bg-clip-text bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-lg font-extrabold">
-                View Our Projects
-              </p>
-            </button>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`

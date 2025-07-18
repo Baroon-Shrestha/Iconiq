@@ -27,8 +27,6 @@ export default function AnimatedMediaSection() {
     restDelta: 0.0001,
   });
 
-  // 🎯 Limited growth - only grows from 0 to 0.6 of scroll progress
-  // This means it stops growing at 60% of the scroll and stays at max size
   const scale = useTransform(smoothScroll, [0, 0.6], [0.75, 0.9]);
   const width = useTransform(smoothScroll, [0, 0.6], ["75%", "90%"]);
 
@@ -38,7 +36,7 @@ export default function AnimatedMediaSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full min-h-[80vh] flex justify-center items-center"
+      className="w-full min-h-[40vh] md:min-h-[80vh] flex justify-center items-center"
     >
       <motion.div
         ref={ref}
@@ -47,7 +45,7 @@ export default function AnimatedMediaSection() {
       >
         {isMobile ? (
           <img
-            src="/Uploads/fallback.jpg"
+            src="/Uploads/cover2.jpeg"
             alt="Fallback"
             loading="lazy"
             className="w-full h-auto object-cover rounded-2xl"

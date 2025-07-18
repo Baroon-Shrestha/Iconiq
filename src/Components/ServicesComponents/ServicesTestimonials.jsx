@@ -34,15 +34,21 @@ const clientTestimonials = [
 export default function ServicesTestimonials() {
   return (
     <>
-      <div className="text-2xl md:text-3xl text-center capitalize">
-        Hear what our<span className="logo">CLient</span> says about us?
+      <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] pt-12 p-4 rounded-4xl">
+        <div className="text-4xl md:text-6xl px-4 md:px-0 text-center capitalize text-white">
+          Hear what our{" "}
+          <span className="logo  bg-gradint-to-b from-[#C848C1] to-[#54A6F9] text-trasparent b-clip-text">
+            Clients
+          </span>{" "}
+          say about us
+        </div>
+        <Carousel
+          data={clientTestimonials}
+          heading="What our"
+          highlight="Clients"
+          subtext="say about working with us."
+        />
       </div>
-      <Carousel
-        data={clientTestimonials}
-        heading="What our"
-        highlight="Clients"
-        subtext="say about working with us."
-      />
     </>
   );
 }

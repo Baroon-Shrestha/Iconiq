@@ -97,99 +97,36 @@ export default function ProjectsHero() {
   return (
     <div className="relative min-h-[80vh] flex flex-col justify-end rounded-3xl text-white overflow-hidden group">
       {/* Background Carousel */}
-      <div className="absolute inset-0">
-        {initialCards.map((card, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              index === currentBg
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-105"
-            }`}
-          >
+      {/* Background Carousel with Slide Animation */}
+      <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <div
+          className="flex h-full transition-transform duration-700 ease-in-out"
+          style={{
+            width: `${initialCards.length * 100}%`,
+            transform: `translateX(-${
+              currentBg * (100 / initialCards.length)
+            }%)`,
+          }}
+        >
+          {initialCards.map((card, index) => (
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-3xl"
+              key={index}
+              className="flex-shrink-0 w-full h-full relative"
               style={{
                 backgroundImage: `url('${card.bgImage}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
-            />
-            <div
-              className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-40 rounded-3xl`}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Enhanced Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-3xl" />
-
-      {/* Navigation Controls */}
-      {/* <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
-        <button
-          onClick={togglePlayPause}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-200"
-        >
-          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-        </button>
-        <button
-          onClick={prevSlide}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-200"
-        >
-          <ChevronLeft size={16} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-200"
-        >
-          <ChevronRight size={16} />
-        </button>
-      </div> */}
-
-      {/* Progress Indicators */}
-      {/* <div className="absolute top-6 left-6 z-20 flex gap-2">
-        {initialCards.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`relative h-1 rounded-full transition-all duration-300 ${
-              index === currentBg
-                ? "w-12 bg-white"
-                : "w-6 bg-white/40 hover:bg-white/60"
-            }`}
-          >
-            {index === currentBg && isPlaying && (
+            >
               <div
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-white to-white/80 rounded-full transition-all duration-75"
-                style={{ width: `${progress}%` }}
+                className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-40 rounded-3xl`}
               />
-            )}
-          </button>
-        ))}
-      </div> */}
-
-      {/* Card Preview Thumbnails */}
-      <div className="absolute bottom-20 right-6 z-20 hidden lg:flex flex-col gap-2">
-        {initialCards.map((card, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`relative w-16 h-12 rounded-lg overflow-hidden transition-all duration-300 ${
-              index === currentBg
-                ? "ring-2 ring-white scale-110"
-                : "opacity-60 hover:opacity-100"
-            }`}
-          >
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20" />
-          </button>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Hero Content */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-3xl" />
       <div className="container mx-auto relative z-10 px-6 md:px-12 pb-16">
         <div className="max-w-4xl">
           <div
@@ -224,7 +161,7 @@ export default function ProjectsHero() {
         <div className="absolute bottom-1/3 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse delay-2000" />
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;

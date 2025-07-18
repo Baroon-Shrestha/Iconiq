@@ -38,7 +38,7 @@ export default function AboutHeroVideo() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full min-h-[80vh] flex justify-center items-center"
+      className="w-full min-h-[30vh] md:min-h-[80vh] flex justify-center items-center"
     >
       <motion.div
         ref={ref}
@@ -47,7 +47,7 @@ export default function AboutHeroVideo() {
       >
         {isMobile ? (
           <img
-            src="/Uploads/fallback.jpg"
+            src="/Uploads/webdev.jpg"
             alt="Fallback"
             loading="lazy"
             className="w-full h-auto object-cover rounded-2xl"

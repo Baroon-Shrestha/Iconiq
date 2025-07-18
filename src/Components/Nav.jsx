@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -14,6 +15,11 @@ export default function Nav() {
 
   const closeSidebar = () => {
     setIsOpen(false);
+  };
+
+  // Check if a link is active
+  const isActiveLink = (path) => {
+    return location.pathname === path;
   };
 
   useEffect(() => {
@@ -40,23 +46,37 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/project", label: "Work" },
+    { path: "/services", label: "Services" },
+    { path: "/pricing", label: "Pricing" },
+  ];
+
   return (
     <>
-      {/* Backdrop overlay with blur effect */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40 lg:hidden"
-          onClick={closeSidebar}
-        />
-      )}
-
       {/* Desktop Navbar */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
           isVisible ? "transform translate-y-0" : "transform -translate-y-full"
         } ${
           hasScrolled
-            ? "bg-white backdro-blur-md shadow-lg border-b border-gray-200/20"
+            ? "bg-white backdrop-blur-md shadow-lg border-b border-gray-200/20"
             : ""
         }`}
       >
@@ -70,32 +90,39 @@ export default function Nav() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
-              <Link to="/">
-                <div className="hover:text-red-600 cursor-pointer transition-colors">
-                  Home
-                </div>
-              </Link>
-              <Link to="/about">
-                <div className="hover:text-red-600 cursor-pointer transition-colors">
-                  About Us
-                </div>
-              </Link>
-              <Link to="/project">
-                <div className="hover:text-red-600 cursor-pointer transition-colors">
-                  Work
-                </div>
-              </Link>
-              <Link to="/services">
-                <div className="hover:text-red-600 cursor-pointer transition-colors">
-                  Services
-                </div>
-              </Link>
+            <div className="hidden lg:flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link key={item.path} to={item.path}>
+                  <div
+                    className={`relative cursor-pointer transition-colors duration-300 text-lg font-medium group ${
+                      isActiveLink(item.path)
+                        ? "bg-gradient-to-l from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text"
+                        : "text-gray-700 hover:bg-gradient-to-l hover:from-[#C848C1] to-[#54A6F9] hover:text-transparent bg-clip-text"
+                    }`}
+                  >
+                    {item.label}
+                    {/* Animated underline */}
+                    <span
+                      className={`absolute left-0 bottom-0 h-0.5 bg-gradient-to-l from-[#C848C1] to-[#54A6F9] transition-all duration-300 ease-out ${
+                        isActiveLink(item.path)
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
+                      }`}
+                    ></span>
+                  </div>
+                </Link>
+              ))}
             </div>
 
             {/* Desktop Contact Button */}
             <Link to="/contact">
-              <div className="hidden lg:block px-6 py-2 bg-black text-white rounded-3xl logo hover:bg-gray-800 cursor-pointer transition-colors">
+              <div
+                className={`hidden lg:block px-7 py-3 rounded-3xl logo transition-all duration-300 text-lg font-medium ${
+                  isActiveLink("/contact")
+                    ? "bg-gradient-to-l from-[#C848C1] to-[#54A6F9] text-white"
+                    : "bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-white "
+                }`}
+              >
                 Contact
               </div>
             </Link>
@@ -103,7 +130,7 @@ export default function Nav() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleSidebar}
-              className="lg:hidden p-2 rounded-md hover:bg-red-200 transition-colors"
+              className="lg:hidden p-2 rounded-md hover:bg-red-200 transition-colors z-60 relative"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -111,14 +138,14 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Full-Screen Overlay */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 bg-white transform transition-all duration-500 ease-in-out z-40 lg:hidden ${
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Sidebar Header */}
+          {/* Mobile Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <Link to="/">
               <div className="logo text-3xl">
@@ -133,53 +160,76 @@ export default function Nav() {
             </button>
           </div>
 
-          {/* Sidebar Navigation */}
-          <div className="flex-1 flex flex-col py-8">
-            <nav className="flex flex-col space-y-1 px-6">
-              <Link to="/">
-                <div
-                  className="px-4 py-3 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition-colors text-lg font-medium"
-                  onClick={closeSidebar}
-                >
-                  Home
-                </div>
-              </Link>
-              <Link to="/about">
-                <div
-                  className="px-4 py-3 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition-colors text-lg font-medium"
-                  onClick={closeSidebar}
-                >
-                  About Us
-                </div>
-              </Link>
-              <Link to="/project">
-                <div
-                  className="px-4 py-3 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition-colors text-lg font-medium"
-                  onClick={closeSidebar}
-                >
-                  Work
-                </div>
-              </Link>
-              <Link to="/services">
-                <div
-                  className="px-4 py-3 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition-colors text-lg font-medium"
-                  onClick={closeSidebar}
-                >
-                  Services
-                </div>
-              </Link>
+          {/* Mobile Navigation - Main Content */}
+          <div className="flex-1 flex flex-col justify-center">
+            <nav className="flex flex-col space-y-6 px-8">
+              {navItems.map((item) => (
+                <Link key={item.path} to={item.path}>
+                  <div
+                    className={`text-center py-6 rounded-lg cursor-pointer transition-all duration-300 text-2xl font-medium border-b border-gray-100 relative group ${
+                      isActiveLink(item.path)
+                        ? "bg-red-50 text-red-600"
+                        : "hover:bg-red-50 hover:text-red-600"
+                    }`}
+                    onClick={closeSidebar}
+                  >
+                    {item.label}
+                    {/* Mobile animated underline */}
+                    <span
+                      className={`absolute left-1/2 bottom-4 h-0.5 bg-red-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${
+                        isActiveLink(item.path)
+                          ? "w-16"
+                          : "w-0 group-hover:w-16"
+                      }`}
+                    ></span>
+                  </div>
+                </Link>
+              ))}
             </nav>
 
             {/* Mobile Contact Button */}
-            <div className="px-6 mt-8">
+            <div className="px-8 mt-12">
               <Link to="/contact">
                 <button
                   onClick={closeSidebar}
-                  className="w-full px-6 py-3 bg-black text-white rounded-2xl hover:bg-gray-800 transition-colors text-lg font-medium"
+                  className={`w-full px-8 py-4 rounded-2xl transition-all duration-300 text-xl font-medium ${
+                    isActiveLink("/contact")
+                      ? "bg-red-600 text-white"
+                      : "bg-black text-white hover:bg-gray-800"
+                  }`}
                 >
                   Contact
                 </button>
               </Link>
+            </div>
+          </div>
+
+          {/* Mobile Footer */}
+          <div className="border-t border-gray-200 p-6 bg-gray-50">
+            <div className="text-center space-y-4">
+              <div className="flex justify-center space-x-6">
+                <a
+                  href="#"
+                  className="text-gray-600 hover:text-red-600 transition-colors text-base"
+                >
+                  Privacy
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-600 hover:text-red-600 transition-colors text-base"
+                >
+                  Terms
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-600 hover:text-red-600 transition-colors text-base"
+                >
+                  Support
+                </a>
+              </div>
+              <div className="text-sm text-gray-500">
+                © 2024 IconiQ. All rights reserved.
+              </div>
             </div>
           </div>
         </div>

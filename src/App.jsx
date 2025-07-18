@@ -10,6 +10,7 @@ import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import Client from "./Pages/Client";
 import ScrollToTop from "./Components/HelperComponents/ScrollToTop";
+import Pricing from "./Pages/Pricing";
 export default function App() {
   return (
     <>
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/project" element={<Project />} />
           <Route path="/client" element={<Client />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

@@ -35,8 +35,8 @@ export default function Carousel({ data }) {
   const testimonial = data[index];
 
   return (
-    <div className="relative container mx-auto min-h-[vh] bg-white text-black py-16 flex flex-col justify-center">
-      <div className="absolute top-1/2 right-10 transform -translate-y-1/2 flex gap-6 text-3xl font-light z-10">
+    <div className="relative container mx-auto min-h-[vh] bg-whie text-white py-8 md:py-16 flex flex-col justify-center">
+      <div className="absolute bottom-1/6 right-10 transform -translate-y-1/2 flex gap-6 text-3xl font-light z-10">
         <button onClick={handlePrev}>←</button>
         <button onClick={handleNext}>→</button>
       </div>
@@ -50,13 +50,16 @@ export default function Carousel({ data }) {
             initial="initial"
             animate="animate"
             exit="exit"
+            className="p-4"
           >
-            <p className="text-3xl md:text-5xl font-light mb-10 leading-snug">
+            <p className="text-3xl md:text-4xl font-light mb-10 leading-snug">
               “{testimonial.quote}”
             </p>
             <div>
-              <p className="text-lg font-semibold">{testimonial.name}</p>
-              <p className="text-gray-500">{testimonial.position}</p>
+              <div>
+                <p className="text-lg font-semibold">{testimonial.name}</p>
+                <p className="text-gry-500">{testimonial.position}</p>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>

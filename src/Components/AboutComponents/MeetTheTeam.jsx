@@ -10,8 +10,8 @@ export default function MeetTheTeam() {
   const team = [
     {
       name: "Roshan KC",
-      role: "Founder",
-      img: "Uploads/Roshan.png",
+      role: "Founder & CEO",
+      img: "Uploads/defaultpp.jpg",
       description:
         "Roshan KC is the visionary founder behind our organization. With a strong focus on leadership and innovation, he has been instrumental in shaping the company’s mission, building strong partnerships, and guiding the team toward sustainable growth.",
       socialLinks: [
@@ -40,8 +40,8 @@ export default function MeetTheTeam() {
     },
     {
       name: "Rabindra Giri",
-      role: "Manager",
-      img: "Uploads/Rabin.png",
+      role: "Co-founder & CEO",
+      img: "Uploads/rabin.png",
       description:
         "Rabindra Giri leads the team as Manager, ensuring day-to-day operations run smoothly. His expertise lies in team coordination, project management, and ensuring client satisfaction through efficient workflow and clear communication.",
       socialLinks: [
@@ -70,7 +70,7 @@ export default function MeetTheTeam() {
     },
     {
       name: "Abiral Poudel",
-      role: "Graphics Designer",
+      role: "Sr. Graphics Designer",
       img: "/Uploads/Abiral.png",
       description:
         "Abiral Poudel is a creative Graphics Designer, bringing visual ideas to life through thoughtful design and branding. His skills cover everything from digital illustrations to UI assets, maintaining visual consistency across all platforms.",

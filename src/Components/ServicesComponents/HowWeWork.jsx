@@ -7,8 +7,7 @@ import {
   Rocket,
   CheckCircle,
 } from "lucide-react";
-import { GiDuration } from "react-icons/gi";
-
+import { Link } from "react-router-dom";
 const steps = [
   {
     title: "Discovery & Planning",
@@ -288,10 +287,12 @@ export default function HowWeWork() {
       <div className="text-center mt-20">
         <div className="relative inline-block">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#C848C1] to-[#54A6F9] rounded-full blur opacity-75 animate-pulse" />
-          <button className="relative inline-flex items-center gap-3 bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">
-            <span>Ready to get started?</span>
-            <Rocket className="w-5 h-5" />
-          </button>
+          <Link to="/pricing">
+            <button className="relative inline-flex items-center gap-3 bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">
+              <span>Ready to get started?</span>
+              <Rocket className="w-5 h-5" />
+            </button>
+          </Link>
         </div>
       </div>
 

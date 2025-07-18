@@ -48,10 +48,10 @@ export default function Clients() {
   const [hoveredClient, setHoveredClient] = useState(null);
 
   return (
-    <section className=" py-20 my-2 min-h-[60vh] ">
+    <section className=" pt-18 -18 min-h-[60vh] ">
       <div className="container mx-auto px-4 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-semibold mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-12">
           Our{" "}
           <span className="bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text logo">
             Clients

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
-    image: "/Uploads/hero.jpeg",
+    image: "/Uploads/momiji2.jpg",
     title: "Momiji International Academy",
     subtitle: "Integrating AR to elevate social commerce",
   },
@@ -60,11 +60,19 @@ export default function HomeProjects() {
     document.body.style.cursor = "auto";
   };
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="w-full bg-white">
-      <div className="container mx-auto px-6 pt-20">
+    <div className="w-full bg-white ">
+      <div className="container mx-auto px-6 pt-[22rem] md:pt-20">
         <div className="flex items-center flex-col justify-center mb-12 gap-4">
-          <div className="text-4xl text-center ">
+          <div className="text-4xl md:text-7xl font-extrabold text-center ">
             Our{" "}
             <span className="logo bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text">
               Projects
@@ -76,11 +84,13 @@ export default function HomeProjects() {
             odio!
           </div>
         </div>
-        <Cursor
-          isVisible={cursorState.isVisible}
-          position={cursorState.position}
-          text={cursorState.text}
-        />
+        {windowWidth >= 768 && (
+          <Cursor
+            isVisible={cursorState.isVisible}
+            position={cursorState.position}
+            text={cursorState.text}
+          />
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {projects.map((project, index) => (

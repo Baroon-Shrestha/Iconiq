@@ -20,7 +20,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full h-[80vh] bg-gradient-to-t from-[#4b0082] to-[#54A6F9] overflow-hidden rounded-4xl">
+    <div className="relative w-full h-[80vh] bg-gradient-to-t from-[#1E293B] to-[#22C55E] overflow-hidden rounded-4xl">
       {/* Background elements that spread out */}
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Main service cards/elements */}

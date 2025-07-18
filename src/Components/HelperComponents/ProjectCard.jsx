@@ -21,8 +21,8 @@ export default function ProjectCard({ project, index, onHover, onLeave }) {
       </div>
 
       <div>
-        <h3 className="text-xl font-semibold">{project.title}</h3>
-        <p className="text-gray-500 idden grop-hover:block">
+        <h3 className="text-2xl font-bold">{project.title}</h3>
+        <p className="text-gray-500 font-extralight idden grop-hover:block">
           {project.subtitle}
         </p>
       </div>

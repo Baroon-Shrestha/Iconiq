@@ -1,214 +1,306 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaTwitter,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhone,
+  FaClock,
+  FaUsers,
+  FaCheck,
 } from "react-icons/fa";
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#5a0f0f] to-[#1f0000] flex items-center justify-center p-8 rounded-[40px] shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center">
       <motion.div
-        className="max-w-6xl w-full bg-white rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "backOut" }}
+        className="max-w-7xl w-full bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* Left Section */}
-        <motion.div
-          className="bg-gradient-to-br from-[#5a0f0f] to-[#1f0000] text-white p-10 md:p-12 flex flex-col justify-between"
-          initial={{ rotateY: 90, opacity: 0 }}
-          animate={{ rotateY: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: "anticipate" }}
-        >
-          <div className="space-y-6">
-            <motion.h2
-              className="text-4xl font-bold tracking-tight leading-snug"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.7, ease: "circOut" }}
-            >
-              Let’s Work Together
-            </motion.h2>
-            <motion.p
-              className="text-lg text-gray-200 leading-relaxed"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.7, ease: "easeOut" }}
-            >
-              Fill out the form and our team will reach out to you within 24
-              hours.
-            </motion.p>
-
-            <motion.div
-              className="space-y-4"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="flex items-center space-x-3">
-                <span className="text-pink-400 text-xl"></span>
-                <span className="text-base">
-                  Sankhamul, Kathmandu, Naya Baneshwor (Iconiq)
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-pink-400 text-xl">📧</span>
-                <span className="text-base">info@iconiq.com</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-pink-400 text-xl">📞</span>
-                <span className="text-base">+977-1-1234567</span>
-              </div>
-            </motion.div>
-
-            {/* Office Hours */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
-            >
-              <h3 className="text-2xl font-semibold mb-2">Office Hours</h3>
-              <p className="text-gray-200">Mon - Fri: 9:00 AM - 6:00 PM</p>
-              <p className="text-gray-200">Sat: 10:00 AM - 4:00 PM</p>
-              <p className="text-gray-200">Sun: Closed</p>
-            </motion.div>
-          </div>
-
-          {/* Social Media */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+          {/* Contact Information */}
           <motion.div
-            className="mt-8"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.3, duration: 0.7, ease: "backOut" }}
+            className="lg:col-span-1 bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-10 text-white relative overflow-hidden"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-3">
-              {[
-                {
-                  href: "https://facebook.com",
-                  bg: "bg-blue-600",
-                  icon: <FaFacebookF />,
-                },
-                {
-                  href: "https://instagram.com",
-                  bg: "bg-pink-500",
-                  icon: <FaInstagram />,
-                },
-                {
-                  href: "https://linkedin.com",
-                  bg: "bg-blue-700",
-                  icon: <FaLinkedinIn />,
-                },
-                {
-                  href: "https://twitter.com",
-                  bg: "bg-blue-400",
-                  icon: <FaTwitter />,
-                },
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`${social.bg} text-white p-3 rounded-full transition-transform`}
-                >
-                  <span className="text-lg">{social.icon}</span>
-                </motion.a>
-              ))}
+            {/* Decorative Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#C848C1]/10 to-[#54A6F9]/10"></div>
+            <div className="relative z-10">
+              <motion.h2
+                className="text-3xl font-bold mb-8 text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                Get In Touch
+              </motion.h2>
+
+              {/* Contact Details */}
+              <motion.div
+                className="space-y-6 mb-10"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.6 }}
+              >
+                <div className="flex items-center space-x-4 group">
+                  <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaMapMarkerAlt className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">Location</p>
+                    <p className="text-white font-medium">
+                      Sankhamul, Kathmandu
+                    </p>
+                    <p className="text-gray-300 text-sm">Naya Baneshwor</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4 group">
+                  <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaEnvelope className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">Email</p>
+                    <p className="text-white font-medium">info@iconiq.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4 group">
+                  <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaPhone className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">Phone</p>
+                    <p className="text-white font-medium">01-1234567</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4 group">
+                  <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaClock className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-300 text-sm">Office Hours</p>
+                    <p className="text-white font-medium">
+                      Mon - Fri: 9:00 AM - 6:00 PM
+                    </p>
+                    <p className="text-gray-300 text-sm">
+                      Sat: 10:00 AM - 4:00 PM
+                    </p>
+                    <p className="text-gray-300 text-sm">Sun: Closed</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Social Media */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-white">
+                  Follow Us
+                </h3>
+                <div className="flex space-x-3">
+                  {[
+                    {
+                      href: "https://facebook.com",
+                      icon: <FaFacebookF />,
+                      color: "hover:bg-blue-600",
+                    },
+                    {
+                      href: "https://instagram.com",
+                      icon: <FaInstagram />,
+                      color: "hover:bg-pink-600",
+                    },
+                    {
+                      href: "https://linkedin.com",
+                      icon: <FaLinkedinIn />,
+                      color: "hover:bg-blue-700",
+                    },
+                    {
+                      href: "https://twitter.com",
+                      icon: <FaTwitter />,
+                      color: "hover:bg-blue-400",
+                    },
+                  ].map((social, index) => (
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 ${social.color}`}
+                    >
+                      {social.icon}
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Section */}
-        <motion.div
-          className="p-10 md:p-12 bg-gray-50"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5, ease: "backOut" }}
-        >
-          {/* Get On Touch Section */}
-          <motion.div
-            className="mb-8"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8, ease: "circOut" }}
-          >
-            <h2 className="text-4xl font-bold text-[#5a0f0f] mb-4">
-              Get On Touch
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We’re always ready to discuss your project and help you achieve
-              your business goals. Let’s make something amazing together.
-            </p>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.form
-            className="space-y-6"
-            initial={{ rotateX: 90, opacity: 0 }}
-            animate={{ rotateX: 0, opacity: 1 }}
-            transition={{ delay: 1.0, duration: 1, ease: "anticipate" }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-              />
-            </div>
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows="5"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
-            ></textarea>
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              whileTap={{ scale: 0.95, rotate: -2 }}
-              className="w-full py-3 rounded-md bg-black text-white text-lg font-semibold hover:bg-gray-800 transition duration-300"
-            >
-              Submit
-            </motion.button>
-          </motion.form>
-
-          {/* Google Map */}
           <motion.div
-            className="mt-8 rounded-lg overflow-hidden shadow-lg"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-2 p-8 lg:p-10 bg-white"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <iframe
-              title="Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.070157023264!2d85.33520141506262!3d27.700769982795407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190da659c7a9%3A0x7e5a8f2b8c26c0b7!2sSankhamul%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1687181234567!5m2!1sen!2snp"
-              width="100%"
-              height="250"
-              style={{ border: "0" }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Send us a Message
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Fill out the form below and we'll get back to you within 24
+                hours. We're excited to hear about your project!
+              </p>
+            </motion.div>
+
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.8 }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
+                    required
+                  />
+                </motion.div>
+                <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
+                    required
+                  />
+                </motion.div>
+              </div>
+
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
+                  required
+                />
+              </motion.div>
+
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300"
+                  required
+                />
+              </motion.div>
+
+              <motion.div whileFocus={{ scale: 1.02 }} className="group">
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your project..."
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[#C848C1] focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white group-hover:border-gray-300 resize-none"
+                  required
+                ></textarea>
+              </motion.div>
+
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-4 px-8 bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-lg flex items-center justify-center space-x-2"
+                disabled={submitted}
+              >
+                {submitted ? (
+                  <>
+                    <FaCheck className="text-white" />
+                    <span>Message Sent!</span>
+                  </>
+                ) : (
+                  <>
+                    <FaUsers className="text-white" />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </motion.button>
+            </motion.form>
+
+            {/* Map */}
           </motion.div>
+        </div>
+        <motion.div
+          className="rounded-b-2xl overflow-hidden shadow-lg"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+        >
+          <iframe
+            title="Office Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.070157023264!2d85.33520141506262!3d27.700769982795407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190da659c7a9%3A0x7e5a8f2b8c26c0b7!2sSankhamul%2C%20Kathmandu!5e0!3m2!1sen!2snp!4v1687181234567!5m2!1sen!2snp"
+            width="100%"
+            height="300"
+            style={{ border: "0" }}
+            allowFullScreen=""
+            loading="lazy"
+            className="w-full h-[300px] rounded-b-2xl"
+          ></iframe>
         </motion.div>
       </motion.div>
     </div>

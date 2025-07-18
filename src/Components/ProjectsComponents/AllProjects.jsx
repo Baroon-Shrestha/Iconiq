@@ -4,49 +4,49 @@ import { X } from "lucide-react";
 
 const projectsData = [
   {
-    image: "Uploads/snap.jpeg",
-    title: "Snapchat",
-    subtitle: "Integrating AR to elevate social commerce",
+    image: "Uploads/momiji2.jpg",
+    title: "Momiji International Academy",
+    subtitle: "Japanese Language Canter",
     description:
       "A revolutionary approach to social commerce that leverages augmented reality to create immersive shopping experiences. This project explores how AR filters and interactive elements can transform the way users discover and purchase products through social media platforms.",
     tags: ["AR/VR", "Social Commerce", "Mobile App", "React Native"],
     year: "2024",
-    client: "Snapchat Inc.",
+    client: "Momiji",
   },
   {
-    image: "Uploads/cover1.jpeg",
-    title: "Joe & The Juice",
-    subtitle: "Host your child's birthday at Joe",
+    image: "Uploads/kansai.png",
+    title: "Kansai International Japanese Langauge Center",
+    subtitle: "Japanese Langauge Center",
     description:
       "A comprehensive digital experience designed to make birthday party planning effortless for parents. The platform integrates booking systems, customizable party packages, and real-time coordination tools to create memorable celebrations.",
     tags: ["UX/UI Design", "Booking System", "Family App", "React"],
     year: "2024",
-    client: "Joe & The Juice",
+    client: "Kansai",
   },
   {
     image: "Uploads/cover2.jpeg",
-    title: "Brand X",
-    subtitle: "Immersive product experience",
+    title: "Kings Motors Pvt. Ltd",
+    subtitle: "Cars Recondition Showroom",
     description:
       "An innovative e-commerce platform that reimagines online shopping through immersive 3D product visualization, virtual try-on features, and AI-powered recommendations to create a premium digital retail experience.",
     tags: ["3D Visualization", "E-commerce", "AI/ML", "Three.js"],
     year: "2023",
-    client: "Brand X Corp",
+    client: "Kings Motors",
   },
   {
-    image: "Uploads/cover1.jpeg",
-    title: "Momiji International Academy",
-    subtitle: "Japanese Educational Consultancy",
+    image: "Uploads/doller.jpg",
+    title: "Doller Sewa",
+    subtitle: "Affordable Digital Services Platform",
     description:
       "An innovative e-commerce platform that reimagines online shopping through immersive 3D product visualization, virtual try-on features, and AI-powered recommendations to create a premium digital retail experience.",
     tags: ["Educational", "Digital Platform"],
     year: "2025",
-    client: "Momiji",
+    client: "Doller Sewa",
   },
   {
     image: "Uploads/cover3.jpeg",
-    title: "Airbnb",
-    subtitle: "Design system modernization",
+    title: "Omni",
+    subtitle: "Educational Consultancy",
     description:
       "A comprehensive overhaul of Airbnb's design system, focusing on accessibility, scalability, and consistency across all platforms. The project involved creating new component libraries, design tokens, and documentation.",
     tags: ["Design Systems", "Accessibility", "Component Library", "Figma"],
@@ -161,20 +161,36 @@ export default function AllProjects() {
     setSelectedIndex(null);
   };
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="container mx-auto px-6 py-20 min-h-screen relative">
-      <div className="text-4xl text-center mb-16 text-gray-900">
-        Our{" "}
-        <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold">
-          Projects
-        </span>
+      <div className="text-center mb-16 flex items-center justify-center flex-col gap-4">
+        <div className="text-3xl md:text-5xl  text-gray-900">
+          Our{" "}
+          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold logo">
+            Projects
+          </span>
+        </div>
+        <div className="max-w-4xl text-lg md:text-2xl font-extralight">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+          eligendi recusandae suscipit dolor laborum praesentium quod omnis
+          adipisci aut! Corporis?
+        </div>
       </div>
 
-      <Cursor
-        isVisible={cursorState.isVisible}
-        position={cursorState.position}
-        text={cursorState.text}
-      />
+      {windowWidth >= 768 && (
+        <Cursor
+          isVisible={cursorState.isVisible}
+          position={cursorState.position}
+          text={cursorState.text}
+        />
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
         {projectsData.map((project, index) => (
@@ -285,7 +301,7 @@ export default function AllProjects() {
                         ))}
                       </motion.div>
 
-                      <motion.div
+                      {/* <motion.div
                         className="pt-6"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -294,7 +310,7 @@ export default function AllProjects() {
                         <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
                           View Case Study
                         </button>
-                      </motion.div>
+                      </motion.div> */}
                     </div>
                   </div>
                 </div>

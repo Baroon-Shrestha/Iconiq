@@ -47,7 +47,7 @@ export default function ParallaxEffect() {
         style={{ height: `${totalHeight}px` }}
       >
         {/* Projects Section - Background Layer */}
-        <div className="sticky top-0 w-full z-0">
+        <div className="sticky top-0 w-full z-0 ">
           <div ref={projectsRef} className="w-full">
             <HomeProjects />
           </div>
