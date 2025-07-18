@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 export default function MissionVisionSections() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-20">
+    <div className=" px-4 py-20">
       {/* Mission Section */}
       <motion.section
-        className="mb-32"
+        className="mb-32 max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -92,8 +92,9 @@ export default function MissionVisionSections() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] py-12 rounded-4xl"
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <motion.div
             className="relative lg:order-2"
             initial={{ opacity: 0, x: -30 }}
@@ -101,16 +102,15 @@ export default function MissionVisionSections() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Shaping the{" "}
-              <span className="text-blue-500">future of business</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              Shaping the <span className="">future of business</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-white mb-8 leading-relaxed">
               To become the global leader in digital transformation, creating
               innovative solutions that define tomorrow's business landscape.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               {[
                 {
                   icon: "🌍",
@@ -138,10 +138,10 @@ export default function MissionVisionSections() {
                 >
                   <div className="text-2xl">{item.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
+                    <h3 className="font-semibold text-white mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600">{item.desc}</p>
+                    <p className="text-white">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

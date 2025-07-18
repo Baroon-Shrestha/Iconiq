@@ -12,6 +12,7 @@ import {
   FaUsers,
   FaCheck,
 } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -33,7 +34,38 @@ export default function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Your WhatsApp number with country code for Nepal (977)
+    const phoneNumber = "9779860444420";
+
+    // Build WhatsApp message
+    const whatsappMessage = `
+📨 *New Contact Form Submission*
+----------------------------
+👤 *Name:* ${formData.firstName} ${formData.lastName}
+📧 *Email:* ${formData.email}
+📌 *Subject:* ${formData.subject}
+📝 *Message:* ${formData.message}
+`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // WhatsApp link
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappLink, "_blank");
+
+    // Reset form and show submitted state
     setSubmitted(true);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
     setTimeout(() => setSubmitted(false), 3000);
   };
 
@@ -53,7 +85,6 @@ export default function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            {/* Decorative Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#C848C1]/10 to-[#54A6F9]/10"></div>
             <div className="relative z-10">
               <motion.h2
@@ -64,7 +95,6 @@ export default function ContactForm() {
               >
                 Get In Touch
               </motion.h2>
-
               {/* Contact Details */}
               <motion.div
                 className="space-y-6 mb-10"
@@ -77,34 +107,48 @@ export default function ContactForm() {
                     <FaMapMarkerAlt className="text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-300 text-sm">Location</p>
-                    <p className="text-white font-medium">
-                      Sankhamul, Kathmandu
-                    </p>
-                    <p className="text-gray-300 text-sm">Naya Baneshwor</p>
+                    <a
+                      href="https://www.google.com/maps?q=Sankhamul,+Kathmandu"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block space-y-1 hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      <p className="text-gray-300 text-sm">Location</p>
+                      <p className="text-white font-medium">
+                        Sankhamul, Kathmandu
+                      </p>
+                      <p className="text-gray-300 text-sm">Naya Baneshwor</p>
+                    </a>
                   </div>
                 </div>
-
                 <div className="flex items-center space-x-4 group">
                   <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
                     <FaEnvelope className="text-white" />
                   </div>
                   <div>
-                    <p className="text-gray-300 text-sm">Email</p>
-                    <p className="text-white font-medium">info@iconiq.com</p>
+                    <a href="mailto:info@iconiq.com">
+                      <p className="text-gray-300 text-sm">Email</p>
+                      <p className="text-white font-medium">info@iconiq.com</p>
+                    </a>
                   </div>
                 </div>
-
                 <div className="flex items-center space-x-4 group">
                   <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
                     <FaPhone className="text-white" />
                   </div>
                   <div>
                     <p className="text-gray-300 text-sm">Phone</p>
-                    <p className="text-white font-medium">01-1234567</p>
+                    <button
+                      className="text-white font-medium"
+                      onClick={() => {
+                        navigator.clipboard.writeText("+9779812345678");
+                        toast.success("Phone number copied to clipboard!");
+                      }}
+                    >
+                      +977-981-XXXXXX
+                    </button>
                   </div>
                 </div>
-
                 <div className="flex items-center space-x-4 group">
                   <div className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] p-3 rounded-full group-hover:scale-110 transition-transform">
                     <FaClock className="text-white" />
@@ -121,7 +165,6 @@ export default function ContactForm() {
                   </div>
                 </div>
               </motion.div>
-
               {/* Social Media */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -276,13 +319,11 @@ export default function ContactForm() {
                 ) : (
                   <>
                     <FaUsers className="text-white" />
-                    <span>Send Message</span>
+                    <span>Send via WhatsApp</span>
                   </>
                 )}
               </motion.button>
             </motion.form>
-
-            {/* Map */}
           </motion.div>
         </div>
         <motion.div
@@ -302,6 +343,7 @@ export default function ContactForm() {
             className="w-full h-[300px] rounded-b-2xl"
           ></iframe>
         </motion.div>
+        ;
       </motion.div>
     </div>
   );

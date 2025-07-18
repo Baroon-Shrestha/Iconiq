@@ -7,7 +7,7 @@ export default function PricingHero() {
   return (
     <div className="relative min-h-[80vh] flex flex-col justify-end rounded-4xl text-white overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center rounded-4xl"
+        className="absolute inset-0 bg-cover bg-center rounded-4xl "
         style={{
           backgroundImage: `url('${backgroundImage}')`,
         }}

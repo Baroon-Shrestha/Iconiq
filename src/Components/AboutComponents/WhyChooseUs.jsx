@@ -52,13 +52,10 @@ export default function WhyChooseUs({ features }) {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 mb-2">
-            <span className="text-white font-medium">Results That Matter</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-purple-100 to-blue-100 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-purple-100 to-blue-100 bg-clip-text text-transparent">
             Why We're <span className="logo">Different</span>
           </h2>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-extralight">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-extralight">
             While others make promises, we deliver measurable transformations.
             Here's why industry leaders choose us over the competition.
           </p>

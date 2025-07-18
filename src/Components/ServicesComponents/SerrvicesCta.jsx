@@ -11,7 +11,7 @@ function CTAVariation2() {
   };
 
   return (
-    <div className="mt-12 bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+    <div className="my-12 bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
       <div className="flex flex-col lg:flex-row">
         {/* Left side - Content */}
         <div className="flex-1 p-8 lg:p-12">

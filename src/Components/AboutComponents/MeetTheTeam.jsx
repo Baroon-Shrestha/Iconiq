@@ -193,7 +193,7 @@ export default function MeetTheTeam() {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           className="text-center mb-12"
@@ -202,13 +202,13 @@ export default function MeetTheTeam() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
             Meet Our{" "}
             <span className="bg-gradient-to-b from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text logo">
               Team
             </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg md:text-xl font-extralight max-w-2xl mx-auto">
             Passionate innovators dedicated to your success
           </p>
         </motion.div>

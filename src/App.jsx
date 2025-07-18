@@ -11,10 +11,13 @@ import Nav from "./Components/Nav";
 import Client from "./Pages/Client";
 import ScrollToTop from "./Components/HelperComponents/ScrollToTop";
 import Pricing from "./Pages/Pricing";
+import { Toaster } from "react-hot-toast";
+
 export default function App() {
   return (
     <>
       <div className="m-6">
+        <Toaster position="top-center" />
         <ScrollToTop />
         <Nav />
         <Routes>

@@ -44,7 +44,7 @@ const steps = [
     description:
       "Rigorous testing ensures everything works perfectly across all devices and platforms.",
     icon: <Settings className="w-6 h-6" />,
-    duration: "1 week",
+    duration: "1-2 weeks",
     image:
       "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=800&q=80",
     tags: ["Testing", "QA", "Optimization"],
@@ -54,7 +54,7 @@ const steps = [
     description:
       "We launch your project and provide ongoing support to ensure continued success and growth.",
     icon: <Rocket className="w-6 h-6" />,
-    duration: "Free for a Year",
+    duration: "Free for half a year",
     image:
       "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=800&q=80",
     tags: ["Launch", "Support", "Growth"],
@@ -118,14 +118,15 @@ export default function HowWeWork() {
   return (
     <section className="relative py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">
           How We{" "}
           <span className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent logo">
             Work
           </span>
         </h2>
-        <p className="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
-          Our streamlined process ensures quality results every time
+        <p className="max-w-3xl mx-auto text-gray-600 text-lg md:text-xl leading-relaxed">
+          Our streamlined process is crafted to deliver consistent, high-quality
+          results with efficiency and precision every time.
         </p>
       </div>
 
@@ -191,7 +192,7 @@ export default function HowWeWork() {
                 <div className="absolute top-4 z-10 left-8 md:left-1/2 md:-translate-x-1/2">
                   <div className="relative">
                     <div
-                      className={`w-16 h-16 rounded-full border-4 bg-white shadow-2xl transition-all duration-500 ease-in-out flex items-center justify-center ${
+                      className={`md:w-16 md:h-16 w-14 h-14 -ml-12 md:ml-0 mb-10 rounded-full border-4 bg-white shadow-2xl transition-all duration-500 ease-in-out flex items-center justify-center ${
                         isCompleted
                           ? "border-[#54A6F9] scale-110 bg-gradient-to-r from-[#C848C1] to-[#54A6F9]"
                           : isActive

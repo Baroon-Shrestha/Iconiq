@@ -152,15 +152,15 @@ export default function Pricing() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-20">
       {/* Header Section */}
       <div className="container mx-auto px-4 mb-16">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-6xl font-black text-gray-900 mb-6 leading-tight">
+        <div className="flex items-center flex-col gap-6">
+          <h1 className="text-4xl md:text-6xl font-black text-gray-900 leading-tight">
             Pricing That
             <span className="bg-gradient-to-b from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent">
               {" "}
               Delivers Results
             </span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-xl font-extralight text-center max-w-3xl text-gray-600 leading-relaxed">
             Choose the perfect package to elevate your brand and dominate your
             market. Every service is designed to deliver measurable results and
             exceptional ROI.
@@ -287,10 +287,10 @@ export default function Pricing() {
             services
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
+            {/* <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
               <FaChartLine className="mr-2" />
               View Our Results
-            </button>
+            </button> */}
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
               Schedule Free Consultation
             </button>

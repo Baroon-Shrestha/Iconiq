@@ -101,12 +101,19 @@ export default function CoreServices() {
   return (
     <>
       <div className="container mx-auto py-12 ">
-        <div className="text-2xl md:text-4xl text-center">
-          Our{" "}
-          <span className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent logo">
-            Core{" "}
-          </span>
-          Services{" "}
+        <div className="flex items-center justify-center flex-col gap-6">
+          <div className="text-4xl md:text-6xl text-center">
+            Our{" "}
+            <span className="bg-gradient-to-r from-[#C848C1] to-[#54A6F9] bg-clip-text text-transparent logo">
+              Core{" "}
+            </span>
+            Services{" "}
+          </div>
+          <div className="text-lg md:text-xl font-extralight max-w-3xl text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            ipsum rem, autem, voluptatibus officia eveniet voluptas veniam nobis
+            iure magnam quasi ducimus distinctio ipsam molestias!
+          </div>
         </div>
         <section className=" px-4 py-16 space-y-[20vh]">
           {CoreServicesData.map((item, index) => (

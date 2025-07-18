@@ -171,13 +171,13 @@ export default function AllProjects() {
   return (
     <div className="container mx-auto px-6 py-20 min-h-screen relative">
       <div className="text-center mb-16 flex items-center justify-center flex-col gap-4">
-        <div className="text-3xl md:text-5xl  text-gray-900">
+        <div className="text-4xl md:text-6xl  text-gray-900">
           Our{" "}
           <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold logo">
             Projects
           </span>
         </div>
-        <div className="max-w-4xl text-lg md:text-2xl font-extralight">
+        <div className="max-w-4xl text-lg md:text-xl font-extralight">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           eligendi recusandae suscipit dolor laborum praesentium quod omnis
           adipisci aut! Corporis?
