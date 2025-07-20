@@ -70,7 +70,7 @@ export default function HomeProjects() {
 
   return (
     <div className="w-full bg-white ">
-      <div className="container mx-auto px-6 pt-[22rem] md:pt-20">
+      <div className="container mx-auto px-6 pt-[26rem] md:pt-20">
         <div className="flex items-center flex-col justify-center mb-12 gap-4">
           <div className="text-4xl md:text-7xl font-extrabold text-center ">
             Our{" "}
@@ -79,9 +79,10 @@ export default function HomeProjects() {
             </span>
           </div>
           <div className="text-center text-base md:text-xl font-extralight max-w-3xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel natus
-            earum magni. Eligendi enim saepe voluptate consequuntur at repellat
-            odio!
+            Explore a curated selection of our work, where creativity meets
+            strategy. From impactful brand identities to dynamic digital
+            experiences, each project reflects our commitment to excellence and
+            innovation.
           </div>
         </div>
         {/* {windowWidth >= 768 && (

@@ -1,35 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import OrbitingAvatars from "./OrbitingAvatars";
 
 // Mock avatar data - replace with actual images
 const avatarData = [
   {
     id: 1,
-    src: "Uploads/branding.jpg",
+    src: "Uploads/ae.png",
   },
   {
     id: 2,
-    src: "Uploads/digi.png",
+    src: "Uploads/bracket.png",
   },
   {
     id: 3,
-    src: "Uploads/illustrator.png",
+    src: "Uploads/digi.png",
   },
   {
     id: 4,
-    src: "Uploads/pr.png",
+    src: "Uploads/ollustrator.png",
   },
   {
     id: 5,
-    src: "Uploads/ps.png",
+    src: "Uploads/photoshop.png",
   },
   {
     id: 6,
-    src: "Uploads/react.png",
+    src: "Uploads/premier.png",
   },
   {
     id: 7,
-    src: "Uploads/web.png",
+    src: "Uploads/vs.jpg",
   },
 ];
 
@@ -45,6 +46,9 @@ export default function HeroSection3() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [initialAnimationComplete, setInitialAnimationComplete] =
+    useState(false);
+  const hasAnimated = useRef(false); // Track if animation has run
 
   // Track mouse position for parallax effect
   useEffect(() => {
@@ -68,11 +72,53 @@ export default function HeroSection3() {
     return () => clearInterval(interval);
   }, []);
 
-  const circleRadius = 200; // Increased from 130
-  const totalAvatars = avatarData.length;
+  // Responsive circle radius and avatar size
+  const getCircleRadius = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768
+        ? 120
+        : window.innerWidth < 1024
+        ? 160
+        : 200;
+    }
+    return 200;
+  };
+
+  const getAvatarSize = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768 ? 50 : window.innerWidth < 1024 ? 70 : 90;
+    }
+    return 90;
+  };
+
+  const [circleRadius, setCircleRadius] = useState(getCircleRadius());
+  const [avatarSize, setAvatarSize] = useState(getAvatarSize());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCircleRadius(getCircleRadius());
+      setAvatarSize(getAvatarSize());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Set initial animation as complete after all avatars have animated in
+  // This should only run ONCE when component mounts
+  useEffect(() => {
+    if (!hasAnimated.current) {
+      const timer = setTimeout(() => {
+        setInitialAnimationComplete(true);
+        hasAnimated.current = true; // Mark as animated
+      }, 2000 + avatarData.length * 100); // Wait for all initial animations to complete
+
+      return () => clearTimeout(timer);
+    }
+  }, []); // Empty dependency array - only runs on mount
 
   return (
-    <div className="min-h-[60vh] pb-12 md:pb-0 md:min-h-[80vh] relative overflow-hidden rounded-4xl">
+    <div className="min-h-[80vh] relative overflow-hidden rounded-4xl">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="flex h-full"
@@ -101,29 +147,34 @@ export default function HeroSection3() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 pt-[10rem] relative z-10 h-full">
+      <div className="container mx-auto px-6 relative z-10 h-full min-h-[80vh] flex flex-col justify-center">
+        {/* Mobile and Tablet Orbiting Avatars (Top) */}
+        <div className="lg:hidden mb-8 flex justify-center">
+          <OrbitingAvatars className="h-64 md:h-80" />
+        </div>
+
         <div className="flex items-center justify-between h-full">
           {/* Left Content */}
-          <div className="flex items-start gap-y-2 flex-col max-w-2xl">
+          <div className="flex items-start gap-y-2 flex-col max-w-2xl lg:flex-1">
             <motion.p
-              className="text-3xl max-w-xl leading-relaxed text-white font-extrabold"
+              className="text-lg md:text-2xl max-w-xl leading-relaxed text-white font-extralight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Iconiq ideas • Real Results
+              Iconiq Ideas • Real Results
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3 }}
-              className="text-2xl max-w-xl leading-relaxed -mb-4 font-bold rounded-full text-transparent bg-clip-text bg-gradient-to-r from-[#C848C1] to-[#54A6F9]"
+              className="text-xl md:text-4xl max-w-xl leading-relaxed -mb-4 font-bold rounded-full text-transparent bg-clip-text bg-gradient-to-r from-[#C848C1] to-[#54A6F9]"
             >
               Welcome To
             </motion.p>
 
             <motion.h1
-              className="text-4xl md:text-7xl font-bold  leading-tight capitalize text-white logo"
+              className="text-3xl md:text-7xl font-bold leading-tight capitalize text-white logo"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -138,134 +189,15 @@ export default function HeroSection3() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              a team of creative and dedicated individuals that brings your
-              ideas to life. Whether, It's related to building sleek websites,
-              designing eye-catching graphics or running smart and modern
-              digital marketing campagins. <br />
-              <span className="">We are here to help you your brand grow.</span>
+              A team of passionate creatives turning your ideas into reality—be
+              it sleek websites, standout graphics, or smart digital marketing.
+              <span className="">We're here to help your brand thrive.</span>
             </motion.p>
-
-            {/* <motion.div
-              className="flex items-center space-x-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <button className="px-6 py-3 bg-white text-purple-600 font-extrabold rounded-lg transition-all hover:scale-105 duration-300">
-                Get Started
-              </button>
-            </motion.div> */}
           </div>
 
-          {/* Right Content - Orbital Avatars */}
-          <div className="flex-1 relative h-full hidden lg:block">
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              {/* Central Logo */}
-              <motion.div
-                className="w-20 h-20 border-2 border-white rounded-full overflow-hidden relative z-20 bg-white flex items-center justify-center"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                whileHover={{ scale: 1.1 }}
-                style={{
-                  transform: `translate(${mousePosition.x * 10}px, ${
-                    mousePosition.y * 10
-                  }px)`,
-                }}
-              >
-                <div className="text-2xl font-bold text-purple-600">
-                  <img src="Uploads/logo_iconiq_final.png" alt="" />
-                </div>
-              </motion.div>
-
-              {/* Orbital Container */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{
-                  width: circleRadius * 2,
-                  height: circleRadius * 2,
-                }}
-              >
-                {/* Orbital Path Visualization */}
-                <div
-                  className="absolute border border-white/20 rounded-full"
-                  style={{
-                    width: circleRadius * 2,
-                    height: circleRadius * 2,
-                    top: 0,
-                    left: 0,
-                  }}
-                />
-
-                {/* Orbiting Avatars */}
-                <AnimatePresence>
-                  {avatarData.map((avatar, index) => {
-                    const angle = (index * 360) / totalAvatars;
-                    const radian = (angle * Math.PI) / 180;
-                    const x = Math.cos(radian) * circleRadius;
-                    const y = Math.sin(radian) * circleRadius;
-
-                    return (
-                      <motion.div
-                        key={avatar.id}
-                        className="absolute rounded-full overflow-hidden cursor-pointer border-2 border-white/20 hover:border-purple-400 transition-all duration-300"
-                        style={{
-                          width: "90px",
-                          height: "90px",
-                          left: x + circleRadius - 45,
-                          top: y + circleRadius - 45,
-                          transform: `translate(${
-                            mousePosition.x * (index + 1) * 2
-                          }px, ${mousePosition.y * (index + 1) * 2}px)`,
-                        }}
-                        initial={{
-                          opacity: 0,
-                          scale: 0,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          scale: 1,
-                        }}
-                        transition={{
-                          duration: 0.8,
-                          delay: 1 + index * 0.1,
-                        }}
-                        whileHover={{
-                          scale: 1.2,
-                          zIndex: 30,
-                          boxShadow: "0 0 30px rgba(168, 85, 247, 0.5)",
-                        }}
-                        onHoverStart={() => setIsHovered(true)}
-                        onHoverEnd={() => setIsHovered(false)}
-                      >
-                        {/* Counter-rotate the image to keep it upright */}
-                        <motion.div
-                          className="w-full h-full"
-                          animate={{ rotate: -360 }}
-                          transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        >
-                          <img
-                            src={avatar.src}
-                            alt={`Avatar ${avatar.id}`}
-                            className="w-full h-full object-cover bg-white"
-                          />
-                        </motion.div>
-                      </motion.div>
-                    );
-                  })}
-                </AnimatePresence>
-              </motion.div>
-            </div>
+          {/* Desktop Orbiting Avatars (Right) */}
+          <div className="hidden lg:block lg:flex-1 relative h-full">
+            <OrbitingAvatars className="h-full" />
           </div>
         </div>
       </div>

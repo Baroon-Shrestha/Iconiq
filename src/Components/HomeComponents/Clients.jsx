@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const clientsData = [
   {
@@ -67,9 +67,49 @@ const clientsData = [
   },
 ];
 
+const AnimatedCounter = ({
+  target,
+  suffix = "",
+  duration = 2000,
+  startAnimation = false,
+}) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+
+    let startTime = null;
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const currentCount = Math.floor(easeOutCubic * target);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [target, duration, startAnimation]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+};
+
 export default function Clients() {
   const [hoveredClient, setHoveredClient] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+  const statsRef = useRef(null);
 
   const categories = [
     "All",
@@ -83,6 +123,27 @@ export default function Clients() {
     selectedCategory === "All"
       ? clientsData
       : clientsData.filter((client) => client.category === selectedCategory);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isStatsVisible) {
+          setIsStatsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [isStatsVisible]);
 
   return (
     <section className="py-14 rounded-4xl my-12 bg-gradient-to-br from-gray-50  via-white to-gray-100 relative overflow-hidden">
@@ -220,36 +281,35 @@ export default function Clients() {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-2 gap-8">
+        {/* Stats Section with Animated Counters */}
+        <div
+          ref={statsRef}
+          className="mt-20 grid grid-cols-2 md:grid-cols-2 gap-8"
+        >
           <div className="text-center group cursor-pointer">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-300">
-              15+
+              <AnimatedCounter
+                target={15}
+                suffix="+"
+                startAnimation={isStatsVisible}
+              />
             </div>
             <p className="text-gray-600 font-medium">Happy Clients</p>
           </div>
           <div className="text-center group cursor-pointer">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#54A6F9] to-[#C848C1] text-transparent bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-300">
-              100%
+              <AnimatedCounter
+                target={100}
+                suffix="%"
+                startAnimation={isStatsVisible}
+              />
             </div>
             <p className="text-gray-600 font-medium">Satisfaction</p>
           </div>
-          {/* <div className="text-center group cursor-pointer">
-            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#C848C1] to-[#54A6F9] text-transparent bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-300">
-              24/7
-            </div>
-            <p className="text-gray-600 font-medium">Support</p>
-          </div>
-          <div className="text-center group cursor-pointer">
-            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#54A6F9] to-[#C848C1] text-transparent bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-300">
-              5+
-            </div>
-            <p className="text-gray-600 font-medium">Years</p>
-          </div> */}
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;

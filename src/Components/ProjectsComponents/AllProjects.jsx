@@ -38,8 +38,7 @@ const projectsData = [
     category: "Websites",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=350&fit=crop",
+    image: "Uploads/ns.jpg",
     title: "NS Automobile Pvt. Ltd",
     subtitle: "Reconditioned Cars Showroom",
     description:
@@ -495,7 +494,7 @@ export default function AllProjects() {
                               {selectedProject.year}
                             </span>
                             <span>•</span>
-                            <span>{selectedProject.category}</span>
+                            <span>{selectedProject.title}</span>
                           </div>
 
                           <motion.h1
