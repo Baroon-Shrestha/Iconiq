@@ -133,60 +133,6 @@ export default function ProjectsHero() {
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-3xl" />
 
-      {/* Navigation buttons */}
-      <div className="absolute top-1/2 transform -translate-y-1/2 left-4 z-20">
-        <button
-          onClick={prevSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group-hover:opacity-100 opacity-0"
-          disabled={isTransitioning}
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-      </div>
-
-      <div className="absolute top-1/2 transform -translate-y-1/2 right-4 z-20">
-        <button
-          onClick={nextSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group-hover:opacity-100 opacity-0"
-          disabled={isTransitioning}
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
-
-      {/* Play/Pause button */}
-      <div className="absolute top-4 right-4 z-20">
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
-        >
-          {isPlaying ? (
-            <Pause className="w-4 h-4" />
-          ) : (
-            <Play className="w-4 h-4" />
-          )}
-        </button>
-      </div>
-
-      {/* Progress indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {initialCards.map((_, index) => (
-          <div
-            key={index}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentBg ? "w-8 bg-white" : "w-2 bg-white/50"
-            }`}
-          >
-            {index === currentBg && (
-              <div
-                className="h-full bg-white/80 rounded-full transition-all duration-100"
-                style={{ width: `${progress}%` }}
-              />
-            )}
-          </div>
-        ))}
-      </div>
-
       <div className="container mx-auto relative z-10 px-6 md:px-12 pb-16">
         <div className="max-w-4xl">
           <div

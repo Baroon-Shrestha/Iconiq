@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -12,6 +12,7 @@ const projectsData = [
     tags: ["Poster and Motion Graphics", "Mobile Responsive Application"],
     year: "2025",
     height: 400,
+    category: ["Websites", "Branding"],
   },
   {
     image: "Uploads/kansai.png",
@@ -22,6 +23,7 @@ const projectsData = [
     tags: ["UX/UI Design", "Poster Design", "Mobile Responsive Application"],
     year: "2025",
     height: 500,
+    category: "Websites",
   },
   {
     image:
@@ -33,6 +35,19 @@ const projectsData = [
     tags: ["Inventory Management System", "E-commerce", "Poster Design"],
     year: "2025",
     height: 350,
+    category: "Websites",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=350&fit=crop",
+    title: "NS Automobile Pvt. Ltd",
+    subtitle: "Reconditioned Cars Showroom",
+    description:
+      "We built a powerful web platform for King Motors Pvt. Ltd, enabling them to list their reconditioned car inventory with full specs, real-time updates, and customer support. The platform includes a search and filter system to improve browsing, making the car-buying process smoother for users.",
+    tags: ["Poster Design"],
+    year: "2025",
+    height: 350,
+    category: ["Branding", "Websites"],
   },
   {
     image: "Uploads/doller.jpg",
@@ -43,6 +58,7 @@ const projectsData = [
     tags: ["E-commerce", "Digital Platform"],
     year: "2025",
     height: 450,
+    category: "Websites",
   },
   {
     image: "Uploads/omni.jpg",
@@ -53,6 +69,7 @@ const projectsData = [
     tags: ["Mobile Responsive Application"],
     year: "2025",
     height: 380,
+    category: "Websites",
   },
   {
     image: "Uploads/ghar.jpg",
@@ -63,6 +80,7 @@ const projectsData = [
     tags: ["UX/UI Design", "Social Commerce", "Mobile Responsive Application"],
     year: "2025",
     height: 380,
+    category: "Designing",
   },
   {
     image: "Uploads/nisani.jpg",
@@ -73,6 +91,7 @@ const projectsData = [
     tags: ["Poster and Motion Graphics", "Mobile Responsive Application"],
     year: "2025",
     height: 380,
+    category: "Websites",
   },
   {
     image: "Uploads/sanskar.jpg",
@@ -83,6 +102,7 @@ const projectsData = [
     tags: ["Poster and Graphics Design", "Ads and Motion Graphics"],
     year: "2025",
     height: 380,
+    category: "Designing",
   },
   {
     image: "Uploads/namodebi.jpg",
@@ -93,6 +113,7 @@ const projectsData = [
     tags: ["UX/UI Design", "Mobile Responsive Application"],
     year: "2025",
     height: 380,
+    category: "Websites",
   },
 ];
 
@@ -120,17 +141,22 @@ function ProjectCard({ project, index, onHover, onLeave, onClick }) {
   return (
     <motion.div
       className="group relative flex flex-col break-inside-avoid mb-6"
-      layoutId={`card-container-${index}`}
-      initial={{ opacity: 0, y: 20 }}
+      layoutId={`card-container-${project.title}`}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{
+        delay: index * 0.1,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
     >
       <motion.div
         className="relative overflow-hidden shadow-lg cursor-none rounded-xl"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         onClick={onClick}
-        layoutId={`card-image-${index}`}
+        layoutId={`card-image-${project.title}`}
         whileHover={{ y: -5 }}
         transition={{ duration: 0.3 }}
       >
@@ -139,7 +165,7 @@ function ProjectCard({ project, index, onHover, onLeave, onClick }) {
           alt={project.title}
           className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
           style={{ height: project.height }}
-          layoutId={`image-${index}`}
+          layoutId={`image-${project.title}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
@@ -158,13 +184,13 @@ function ProjectCard({ project, index, onHover, onLeave, onClick }) {
       <div className="mt-4 px-2">
         <motion.h3
           className="text-lg md:text-xl font-semibold text-gray-900 line-clamp-2"
-          layoutId={`title-${index}`}
+          layoutId={`title-${project.title}`}
         >
           {project.title}
         </motion.h3>
         <motion.p
           className="text-gray-500 mt-1 text-sm md:text-base"
-          layoutId={`subtitle-${index}`}
+          layoutId={`subtitle-${project.title}`}
         >
           {project.subtitle}
         </motion.p>
@@ -184,6 +210,43 @@ export default function AllProjects() {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  // Calculate categories with counts
+  const categories = useMemo(() => {
+    const categoryCount = projectsData.reduce((acc, project) => {
+      const categories = Array.isArray(project.category)
+        ? project.category
+        : [project.category];
+
+      categories.forEach((cat) => {
+        acc[cat] = (acc[cat] || 0) + 1;
+      });
+
+      return acc;
+    }, {});
+
+    return [
+      { name: "All", count: projectsData.length },
+      ...Object.entries(categoryCount).map(([name, count]) => ({
+        name,
+        count,
+      })),
+    ];
+  }, []);
+
+  // Filter projects based on active category
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "All") {
+      return projectsData;
+    }
+    return projectsData.filter((project) => {
+      const categories = Array.isArray(project.category)
+        ? project.category
+        : [project.category];
+      return categories.includes(activeCategory);
+    });
+  }, [activeCategory]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -243,6 +306,10 @@ export default function AllProjects() {
     setSelectedIndex(null);
   };
 
+  const handleCategoryChange = (categoryName) => {
+    setActiveCategory(categoryName);
+  };
+
   // Handle escape key to close modal
   useEffect(() => {
     const handleEscape = (e) => {
@@ -260,24 +327,68 @@ export default function AllProjects() {
     };
   }, [selectedProject]);
 
-  const getColumnCount = () => {
-    if (windowWidth >= 1280) return 3; // xl
-    if (windowWidth >= 768) return 2; // md
-    return 1; // sm
-  };
-
+  function SmallerCategories() {
+    return <></>;
+  }
   return (
     <div className="container mx-auto px-6 py-20 min-h-screen relative">
-      <div className="text-center mb-16 flex items-center justify-center flex-col gap-4">
-        <div className="text-4xl md:text-6xl text-gray-900">
-          Our{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold">
-            Projects
-          </span>
+      <div className="mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="flex-1">
+          <div className="text-4xl md:text-6xl text-gray-900 mb-4">
+            Our{" "}
+            <span className="logo bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold">
+              Projects
+            </span>
+          </div>
+          <div className="max-w-2xl text-lg md:text-xl font-extralight text-gray-600">
+            Showcasing our collection of ideas that we've brought to life —
+            crafted with strategy, creativity, and purpose.
+          </div>
         </div>
-        <div className="max-w-4xl text-lg md:text-xl font-extralight text-gray-600">
-          Showcasing our collection of ideas that we've brought to life —
-          crafted with strategy, creativity, and purpose.
+
+        {/* Categories */}
+        <div className="lg:ml-8">
+          {/* <motion.div
+            className="text-sm text-gray-500 mb-4 uppercase tracking-wider"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          ></motion.div> */}
+          <motion.div
+            className="space-y-2"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {categories.map((category, index) => (
+              <motion.button
+                key={category.name}
+                onClick={() => handleCategoryChange(category.name)}
+                className={`flex items-center justify-between w-full text-left transition-all duration-300 group ${
+                  activeCategory === category.name
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text"
+                    : "text-gray-700 hover:text-gray-900"
+                }`}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 + 0.3 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="font-medium">{category.name}</span>
+                <motion.span
+                  className={`ml-20 px-2 py-1 rounded-full  text-md font-semibold minw-[24px] text-center ${
+                    activeCategory === category.name
+                      ? "bg-white/20"
+                      : "text-gray-600"
+                  }`}
+                  layout
+                >
+                  {category.count}
+                </motion.span>
+              </motion.button>
+            ))}
+          </motion.div>
         </div>
       </div>
 
@@ -292,21 +403,28 @@ export default function AllProjects() {
       )}
 
       {/* Masonry Grid */}
-      <div
-        className={`columns-1 md:columns-2 xl:columns-3 gap-6 space-y-0`}
-        style={{ columnFill: "balance" }}
-      >
-        {projectsData.map((project, index) => (
-          <ProjectCard
-            key={index}
-            project={project}
-            index={index}
-            onHover={handleMouseEnter}
-            onLeave={handleMouseLeave}
-            onClick={() => handleProjectClick(project, index)}
-          />
-        ))}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeCategory}
+          className="columns-1 md:columns-2 xl:columns-3 gap-6 space-y-0"
+          style={{ columnFill: "balance" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {filteredProjects.map((project, index) => (
+            <ProjectCard
+              key={`${project.title}-${activeCategory}`}
+              project={project}
+              index={index}
+              onHover={handleMouseEnter}
+              onLeave={handleMouseLeave}
+              onClick={() => handleProjectClick(project, index)}
+            />
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Modal */}
       <AnimatePresence>
@@ -352,14 +470,14 @@ export default function AllProjects() {
                       {/* Image */}
                       <motion.div
                         className="relative overflow-hidden rounded-2xl shadow-2xl"
-                        layoutId={`card-image-${selectedIndex}`}
+                        layoutId={`card-image-${selectedProject.title}`}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
                         <motion.img
                           src={selectedProject.image}
                           alt={selectedProject.title}
                           className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
-                          layoutId={`image-${selectedIndex}`}
+                          layoutId={`image-${selectedProject.title}`}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -377,12 +495,12 @@ export default function AllProjects() {
                               {selectedProject.year}
                             </span>
                             <span>•</span>
-                            <span>{selectedProject.title}</span>
+                            <span>{selectedProject.category}</span>
                           </div>
 
                           <motion.h1
                             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
-                            layoutId={`title-${selectedIndex}`}
+                            layoutId={`title-${selectedProject.title}`}
                             transition={{ duration: 0.6, ease: "easeInOut" }}
                           >
                             {selectedProject.title}
@@ -390,7 +508,7 @@ export default function AllProjects() {
 
                           <motion.p
                             className="text-lg md:text-xl text-gray-300 mb-6"
-                            layoutId={`subtitle-${selectedIndex}`}
+                            layoutId={`subtitle-${selectedProject.title}`}
                             transition={{ duration: 0.6, ease: "easeInOut" }}
                           >
                             {selectedProject.subtitle}
@@ -412,12 +530,12 @@ export default function AllProjects() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.7, duration: 0.6 }}
                         >
-                          <div>What we Did for them:</div>
-                          <div className="flex items-center gap-2 flex-wrap ">
+                          <div className="mb-3">What we Did for them:</div>
+                          <div className="flex items-center gap-2 flex-wrap">
                             {selectedProject.tags.map((tag, tagIndex) => (
                               <motion.span
                                 key={tagIndex}
-                                className="px-3 pr-4 py-1 bg-white/10 text-white rounded-full text-sm backdrop-blur-sm border border-white/20"
+                                className="px-3 py-1 bg-white/10 text-white rounded-full text-sm backdrop-blur-sm border border-white/20"
                                 whileHover={{
                                   scale: 1.05,
                                   backgroundColor: "rgba(255,255,255,0.2)",

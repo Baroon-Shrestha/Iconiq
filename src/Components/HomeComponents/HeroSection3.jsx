@@ -145,7 +145,7 @@ export default function HeroSection3() {
               <span className="">We are here to help you your brand grow.</span>
             </motion.p>
 
-            <motion.div
+            {/* <motion.div
               className="flex items-center space-x-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function HeroSection3() {
               <button className="px-6 py-3 bg-white text-purple-600 font-extrabold rounded-lg transition-all hover:scale-105 duration-300">
                 Get Started
               </button>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Right Content - Orbital Avatars */}

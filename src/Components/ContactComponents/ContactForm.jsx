@@ -166,12 +166,9 @@ export default function ContactForm() {
                   <div>
                     <p className="text-gray-300 text-sm">Office Hours</p>
                     <p className="text-white font-medium">
-                      Mon - Fri: 9:00 AM - 6:00 PM
+                      Sun - Fri: 10:00 AM - 6:00 PM
                     </p>
-                    <p className="text-gray-300 text-sm">
-                      Sat: 10:00 AM - 4:00 PM
-                    </p>
-                    <p className="text-gray-300 text-sm">Sun: Closed</p>
+                    <p className="text-gray-300 font-medium">Sat: Closed</p>
                   </div>
                 </div>
               </motion.div>
@@ -187,17 +184,17 @@ export default function ContactForm() {
                 <div className="flex space-x-3">
                   {[
                     {
-                      href: "https://facebook.com",
+                      href: "https://www.facebook.com/iconiqnp/?rdid=rNX7SW2qKqC4mgto",
                       icon: <FaFacebookF />,
                       color: "hover:bg-blue-600",
                     },
                     {
-                      href: "https://instagram.com",
+                      href: "https://www.instagram.com/iconiqnp/#",
                       icon: <FaInstagram />,
                       color: "hover:bg-pink-600",
                     },
                     {
-                      href: "https://linkedin.com",
+                      href: "https://www.linkedin.com/in/iconiq/",
                       icon: <FaLinkedinIn />,
                       color: "hover:bg-blue-700",
                     },

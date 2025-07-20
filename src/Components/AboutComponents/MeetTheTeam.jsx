@@ -77,14 +77,14 @@ export default function MeetTheTeam() {
       socialLinks: [
         {
           icon: Linkedin,
-          url: "https://www.linkedin.com/in/abiral-poudel-5071472b4/?trk=opento_sprofile_details",
+          url: "#",
           label: "LinkedIn",
           color: "hover:bg-blue-600",
           color2: "hover:text-white",
         },
         {
           icon: FaBehance,
-          url: "https://www.behance.net/abiralpoudel",
+          url: "#",
           label: "Behance",
           color: "hover:bg-blue-500",
           color2: "hover:text-white",
@@ -101,7 +101,7 @@ export default function MeetTheTeam() {
     {
       name: "Abhay Shrestha",
       role: "Graphics Designer",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+      img: "Uploads/abhay.jpg",
       description:
         "Abhay Shrestha specializes in crafting engaging graphic designs for both digital and print media. His attention to detail and creativity helps our brand stand out through impactful visuals and well-crafted marketing materials.",
       socialLinks: [
@@ -131,14 +131,14 @@ export default function MeetTheTeam() {
       socialLinks: [
         {
           icon: Linkedin,
-          url: "https://www.linkedin.com/in/baroon-shrestha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+          url: "#",
           label: "LinkedIn",
           color: "hover:bg-blue-600",
           color2: "hover:text-white",
         },
         {
           icon: Github,
-          url: "https://github.com/Baroon-Shrestha?tab=repositories",
+          url: "#",
           label: "GitHub",
           color: "hover:bg-gray-700",
           color2: "hover:text-white",
@@ -155,7 +155,7 @@ export default function MeetTheTeam() {
     {
       name: "Sara Lamichhane",
       role: "Web Developer",
-      img: "/Uploads/sara.png",
+      img: "/Uploads/sara.jpeg",
       description:
         "Sara Lamichhane is a dedicated Web Developer focused on creating user-friendly web applications. Her strengths include front-end development, responsive design, and collaborating closely with designers and project managers.",
       socialLinks: [
@@ -168,7 +168,7 @@ export default function MeetTheTeam() {
         },
         {
           icon: Github,
-          url: "https://github.com/lamichhanesara00?tab=repositories",
+          url: "#",
           label: "GitHub",
           color: "hover:bg-gray-700",
           color2: "hover:text-white",
