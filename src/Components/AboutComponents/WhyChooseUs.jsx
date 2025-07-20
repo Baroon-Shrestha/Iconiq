@@ -4,30 +4,30 @@ export default function WhyChooseUs({ features }) {
   const defaultFeatures = [
     {
       icon: "🎯",
-      title: "6-Month Brand Transformation",
+      title: "6-Month Brand Makeover",
       description:
-        "We don't just create logos—we architect complete brand ecosystems that increase recognition by 300% and drive measurable market differentiation.",
+        "We help you build a complete brand identity—not just a logo. From visuals to voice, we make sure your brand looks professional and stands out clearly in your market.",
       color: "from-amber-400 to-orange-500",
     },
     {
       icon: "⚡",
-      title: "Revenue-First Marketing",
+      title: "Sales-Focused Marketing",
       description:
-        "Our performance campaigns average 4.2x ROAS across industries. We optimize for actual sales, not vanity metrics like impressions.",
+        "We run ad campaigns that focus on real results like sales and leads. On average, our clients see 4.2x return on their ad spend—no fluff, just performance.",
       color: "from-emerald-400 to-green-500",
     },
     {
       icon: "🔥",
-      title: "Conversion-Engineered Websites",
+      title: "High-Converting Websites",
       description:
-        "Every pixel serves a purpose. Our websites convert 67% better than industry standard through psychological design principles and A/B tested user flows.",
+        "We design websites that don’t just look good—they work. Using proven strategies, we help you get more signups, sales, or inquiries—up to 67% better than average sites.",
       color: "from-blue-400 to-indigo-500",
     },
     {
       icon: "📈",
-      title: "Viral Content Strategy",
+      title: "Content That Goes Viral",
       description:
-        "Our reels consistently hit 100K+ views. We decode platform algorithms and create thumb-stopping content that builds genuine audiences, not just followers.",
+        "We create short-form videos and content that people love to watch and share. Our content regularly reaches 100K+ views, helping you grow a real and active audience.",
       color: "from-pink-400 to-rose-500",
     },
   ];

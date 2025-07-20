@@ -10,19 +10,19 @@ const projects = [
     subtitle: "Integrating AR to elevate social commerce",
   },
   {
-    image: "/Uploads/img1.jpeg",
+    image: "/Uploads/kansai.png",
     title: "Kansai International Language Center",
     subtitle: "Host your child's birthday at Joe",
   },
   {
-    image: "/Uploads/img2.jpeg",
+    image: "/Uploads/nisani.jpg",
     title: "Nisani",
     subtitle: "Immersive product experience",
   },
   {
-    image: "/Uploads/img3.jpeg",
-    title: "Kings motors Ltd pvt.",
-    subtitle: "Design system modernization",
+    image: "Uploads/namodebi.jpg",
+    title: "Navadebi Jwellers",
+    subtitle: "Educational Consultancy",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function HomeProjects() {
   const [cursorState, setCursorState] = useState({
     isVisible: false,
     position: { x: 0, y: 0 },
-    text: "View Project",
+    text: "View all Projects",
   });
 
   useEffect(() => {
@@ -84,15 +84,15 @@ export default function HomeProjects() {
             odio!
           </div>
         </div>
-        {windowWidth >= 768 && (
+        {/* {windowWidth >= 768 && (
           <Cursor
             isVisible={cursorState.isVisible}
             position={cursorState.position}
             text={cursorState.text}
           />
-        )}
+        )} */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}

@@ -44,7 +44,7 @@ export default function AboutHero() {
             <h1 className="text-3xl md:text-6xl font-bold logo mb-4 drop-shadow-lg">
               About Iconiq
             </h1>
-            <p className="text-lg font-extralight max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
+            <p className="text-lg md:text-xl font-extralight max-w-2xl leading-relaxed text-white/90 drop-shadow-sm">
               We blend design, strategy, and technology to help brands grow.
               Discover how Iconiq turns ideas into impactful digital solutions.
             </p>

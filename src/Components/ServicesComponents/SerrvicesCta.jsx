@@ -1,4 +1,6 @@
+import { ChevronRight } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Variation 2: Minimalist Card Layout
 function CTAVariation2() {
@@ -29,32 +31,24 @@ function CTAVariation2() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={handleProjectClick}
-                className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                View Projects
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <Link to="/project">
+                <button
+                  onClick={handleProjectClick}
+                  className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+                  View Projects
+                  <ChevronRight />
+                </button>
+              </Link>
 
-              <button
-                onClick={handlePricingClick}
-                className="flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
-              >
-                See Pricing
-              </button>
+              <Link to="/pricing">
+                <button
+                  onClick={handlePricingClick}
+                  className="flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+                >
+                  See Pricing
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -8,50 +8,91 @@ const projectsData = [
     title: "Momiji International Academy",
     subtitle: "Japanese Language Center",
     description:
-      "A dedicated platform for Japanese language education, offering courses, resources, and interactive learning experiences for students aspiring to master Japanese at Momiji International Academy.",
-    tags: ["Social Commerce", "Mobile Responsive Application"],
+      "We designed a dedicated platform for Momiji International Academy, a reputed Japanese language institute. The website features course information, an intuitive enrollment system, student resources, and a mobile-friendly design to help students prepare for study and work opportunities in Japan.",
+    tags: ["Poster and Motion Graphics", "Mobile Responsive Application"],
     year: "2025",
-    client: "Momiji",
+    height: 400,
   },
   {
     image: "Uploads/kansai.png",
     title: "Kansai International Japanese Language Center",
     subtitle: "Japanese Language Center",
     description:
-      "A modern, user-friendly website for Kansai International Japanese Language Center, providing course details, enrollment options, and student resources to support language learning journeys.",
-    tags: ["UX/UI Design", "social Commerce"],
+      "This website was developed for Kansai International Japanese Language Center to help streamline student access to course details, application forms, and learning materials. The UI was designed to reflect modern minimalism, supporting both native and international users looking to learn Japanese and pursue education in Japan.",
+    tags: ["UX/UI Design", "Poster Design", "Mobile Responsive Application"],
     year: "2025",
-    client: "Kansai",
+    height: 500,
   },
   {
-    image: "Uploads/cover2.jpeg",
-    title: "Kings Motors Pvt. Ltd",
-    subtitle: "Cars Recondition Showroom",
+    image:
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=350&fit=crop",
+    title: "King Motors Pvt. Ltd",
+    subtitle: "Reconditioned Cars Showroom",
     description:
-      "A complete digital showcase for Kings Motors Pvt. Ltd, featuring reconditioned cars with detailed listings, pricing, and customer service features to enhance the buying experience.",
-    tags: ["Inventory Managemnet System", "E-commerce"],
+      "We built a powerful web platform for King Motors Pvt. Ltd, enabling them to list their reconditioned car inventory with full specs, real-time updates, and customer support. The platform includes a search and filter system to improve browsing, making the car-buying process smoother for users.",
+    tags: ["Inventory Management System", "E-commerce", "Poster Design"],
     year: "2025",
-    client: "Kings Motors",
+    height: 350,
   },
   {
     image: "Uploads/doller.jpg",
     title: "Doller Sewa",
-    subtitle: "Affordable Digital Services Platform",
+    subtitle: "Digital Services Platform",
     description:
-      "An online platform offering affordable digital services including graphic design, social media management, and web solutions tailored to small businesses and individuals.",
+      "Doller Sewa is an affordable digital service provider catering to small businesses and freelancers. We developed a multi-service platform where users can order design, social media, and web development packages with easy navigation, a built-in messaging system, and integrated payment options.",
     tags: ["E-commerce", "Digital Platform"],
     year: "2025",
-    client: "Doller Sewa",
+    height: 450,
   },
   {
-    image: "Uploads/cover3.jpeg",
-    title: "Omni Global",
-    subtitle: "Educational Consultancy",
+    image: "Uploads/omni.jpg",
+    title: "Omni Global International Educational Consultancy",
+    subtitle: "Japanese-Focused Educational Consultancy",
     description:
-      "A comprehensive website for Omni Educational Consultancy, featuring student guidance services, visa processing information, and university application support for aspiring international students.",
-    tags: ["UX/UI Design", "social Commerce", "Mobile Responsive Application"],
-    year: "2023",
-    client: "Omni",
+      "Omni Global offers expert guidance for students aiming to study in Japan. We developed a consultancy platform that simplifies the process of university selection, application, visa processing, and document submission. The website is fully mobile-optimized and includes a content management dashboard for easy updates.",
+    tags: ["Mobile Responsive Application"],
+    year: "2025",
+    height: 380,
+  },
+  {
+    image: "Uploads/ghar.jpg",
+    title: "Ghar Sansar Pvt. Ltd",
+    subtitle: "Hardware & Home Essentials Supplier",
+    description:
+      "For Ghar Sansar Pvt. Ltd, we built a sleek e-commerce website for showcasing their home improvement products. The platform includes a social-commerce-ready catalog, custom UI/UX for easier ordering, and responsive design for customers browsing on mobile devices.",
+    tags: ["UX/UI Design", "Social Commerce", "Mobile Responsive Application"],
+    year: "2025",
+    height: 380,
+  },
+  {
+    image: "Uploads/nisani.jpg",
+    title: "Nisani Educational Consultancy Pvt. Ltd",
+    subtitle: "Study in Japan Specialist",
+    description:
+      "Nisani Educational Consultancy specializes in helping students navigate the Japanese education system. Our team created a clean, accessible platform showcasing available language programs, university guidance, document checklists, and a contact system for one-on-one counseling support.",
+    tags: ["Poster and Motion Graphics", "Mobile Responsive Application"],
+    year: "2025",
+    height: 380,
+  },
+  {
+    image: "Uploads/sanskar.jpg",
+    title: "Sanskar Academy",
+    subtitle: "Japan-Focused Consultancy & Training Center",
+    description:
+      "We created a modern web presence for Sanskar Academy, a consultancy helping students pursue higher studies and training programs in Japan. The platform includes visual storytelling through posters and motion content, along with informative sections on Japanese culture, language courses, and visa steps.",
+    tags: ["Poster and Graphics Design", "Ads and Motion Graphics"],
+    year: "2025",
+    height: 380,
+  },
+  {
+    image: "Uploads/namodebi.jpg",
+    title: "Navadebi Jewellers",
+    subtitle: "Jewelry Retailer",
+    description:
+      "Navadebi Jewellers needed a stylish yet functional site to showcase their traditional and modern collections. We designed a responsive product gallery, added inquiry and appointment booking features, and optimized it for mobile shoppers with clean UI and bold visuals.",
+    tags: ["UX/UI Design", "Mobile Responsive Application"],
+    year: "2025",
+    height: 380,
   },
 ];
 
@@ -60,7 +101,7 @@ function Cursor({ isVisible, position, text }) {
 
   return (
     <motion.div
-      className="fixed pointer-events-none z-40 bg-black text-white px-4 py-2 rounded-full text-sm font-medium"
+      className="fixed pointer-events-none z-30 bg-black text-white px-4 py-2 rounded-full text-sm font-medium"
       style={{
         left: position.x,
         top: position.y,
@@ -76,36 +117,55 @@ function Cursor({ isVisible, position, text }) {
 }
 
 function ProjectCard({ project, index, onHover, onLeave, onClick }) {
-  const isRight = index % 2 !== 0;
-
   return (
     <motion.div
-      className={`group relative flex flex-col ${isRight ? "md:mt-[20%]" : ""}`}
+      className="group relative flex flex-col break-inside-avoid mb-6"
       layoutId={`card-container-${index}`}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
     >
       <motion.div
-        className="relative overflow-hidden shadow-md cursor-none rounded-lg"
+        className="relative overflow-hidden shadow-lg cursor-none rounded-xl"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         onClick={onClick}
         layoutId={`card-image-${index}`}
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          style={{ height: project.height }}
           layoutId={`image-${index}`}
         />
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+          <div className="flex flex-wrap gap-1 mb-2">
+            {project.tags.slice(0, 2).map((tag, tagIndex) => (
+              <span
+                key={tagIndex}
+                className="px-2 py-1 bg-white/20 backdrop-blur-sm text-xs rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </motion.div>
-      <div className="mt-4">
+      <div className="mt-4 px-2">
         <motion.h3
-          className="text-xl font-semibold text-gray-900"
+          className="text-lg md:text-xl font-semibold text-gray-900 line-clamp-2"
           layoutId={`title-${index}`}
         >
           {project.title}
         </motion.h3>
-        <motion.p className="text-gray-500 mt-1" layoutId={`subtitle-${index}`}>
+        <motion.p
+          className="text-gray-500 mt-1 text-sm md:text-base"
+          layoutId={`subtitle-${index}`}
+        >
           {project.subtitle}
         </motion.p>
       </div>
@@ -121,6 +181,9 @@ export default function AllProjects() {
   });
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -138,6 +201,25 @@ export default function AllProjects() {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, [cursorState.isVisible]);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
 
   const handleMouseEnter = () => {
     setCursorState((prev) => ({ ...prev, isVisible: true }));
@@ -161,37 +243,59 @@ export default function AllProjects() {
     setSelectedIndex(null);
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  // Handle escape key to close modal
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    if (selectedProject) {
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedProject]);
+
+  const getColumnCount = () => {
+    if (windowWidth >= 1280) return 3; // xl
+    if (windowWidth >= 768) return 2; // md
+    return 1; // sm
+  };
+
   return (
     <div className="container mx-auto px-6 py-20 min-h-screen relative">
       <div className="text-center mb-16 flex items-center justify-center flex-col gap-4">
-        <div className="text-4xl md:text-6xl  text-gray-900">
+        <div className="text-4xl md:text-6xl text-gray-900">
           Our{" "}
-          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold logo">
+          <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-bold">
             Projects
           </span>
         </div>
-        <div className="max-w-4xl text-lg md:text-xl font-extralight">
+        <div className="max-w-4xl text-lg md:text-xl font-extralight text-gray-600">
           Showcasing our collection of ideas that we've brought to life —
           crafted with strategy, creativity, and purpose.
         </div>
       </div>
 
       {windowWidth >= 768 && (
-        <Cursor
-          isVisible={cursorState.isVisible}
-          position={cursorState.position}
-          text={cursorState.text}
-        />
+        <AnimatePresence>
+          <Cursor
+            isVisible={cursorState.isVisible}
+            position={cursorState.position}
+            text={cursorState.text}
+          />
+        </AnimatePresence>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+      {/* Masonry Grid */}
+      <div
+        className={`columns-1 md:columns-2 xl:columns-3 gap-6 space-y-0`}
+        style={{ columnFill: "balance" }}
+      >
         {projectsData.map((project, index) => (
           <ProjectCard
             key={index}
@@ -204,155 +308,188 @@ export default function AllProjects() {
         ))}
       </div>
 
+      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/95 z-50 overflow-y-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Close button */}
-            <motion.button
-              className="fixed top-8 right-8 z-60 text-white hover:text-gray-300 transition-colors"
+          <>
+            {/* Modal Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[9998]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={handleCloseModal}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ delay: 0.2 }}
+            />
+
+            {/* Modal Content */}
+            <motion.div
+              className="fixed inset-0 z-[9999] overflow-y-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              <X size={32} />
-            </motion.button>
+              {/* Close button */}
+              <motion.button
+                className="fixed top-6 right-6 z-[10000] text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-white/10 backdrop-blur-sm"
+                onClick={handleCloseModal}
+                initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                exit={{ opacity: 0, scale: 0.8, rotate: 180 }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <X size={24} />
+              </motion.button>
 
-            <div className="min-h-screen flex flex-col">
-              {/* Hero Section */}
-              <div className="flex-1 flex items-center justify-center p-8">
-                <div className="max-w-6xl w-full">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Image */}
-                    <motion.div
-                      className="relative overflow-hidden rounded-2xl"
-                      layoutId={`card-image-${selectedIndex}`}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                    >
-                      <motion.img
-                        src={selectedProject.image}
-                        alt={selectedProject.title}
-                        className="w-full h-[400px] lg:h-[500px] object-cover"
-                        layoutId={`image-${selectedIndex}`}
-                        transition={{ duration: 0.6, ease: "easeInOut" }}
-                      />
-                    </motion.div>
-
-                    {/* Content */}
-                    <div className="text-white space-y-6">
+              <div className="min-h-screen flex flex-col">
+                {/* Hero Section */}
+                <div className="flex-1 flex items-center justify-center p-6 md:p-8">
+                  <div className="max-w-7xl w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                      {/* Image */}
                       <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="relative overflow-hidden rounded-2xl shadow-2xl"
+                        layoutId={`card-image-${selectedIndex}`}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
-                        <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                          <span>{selectedProject.year}</span>
-                          <span>•</span>
-                          <span>{selectedProject.client}</span>
-                        </div>
-
-                        <motion.h1
-                          className="text-4xl lg:text-5xl font-bold mb-4"
-                          layoutId={`title-${selectedIndex}`}
+                        <motion.img
+                          src={selectedProject.image}
+                          alt={selectedProject.title}
+                          className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
+                          layoutId={`image-${selectedIndex}`}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      </motion.div>
+
+                      {/* Content */}
+                      <div className="text-white space-y-6">
+                        <motion.div
+                          initial={{ opacity: 0, x: 50 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3, duration: 0.6 }}
                         >
-                          {selectedProject.title}
-                        </motion.h1>
+                          <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                            <span className="bg-white/10 px-2 py-1 rounded">
+                              {selectedProject.year}
+                            </span>
+                            <span>•</span>
+                            <span>{selectedProject.title}</span>
+                          </div>
+
+                          <motion.h1
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+                            layoutId={`title-${selectedIndex}`}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                          >
+                            {selectedProject.title}
+                          </motion.h1>
+
+                          <motion.p
+                            className="text-lg md:text-xl text-gray-300 mb-6"
+                            layoutId={`subtitle-${selectedIndex}`}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                          >
+                            {selectedProject.subtitle}
+                          </motion.p>
+                        </motion.div>
 
                         <motion.p
-                          className="text-xl text-gray-300 mb-6"
-                          layoutId={`subtitle-${selectedIndex}`}
-                          transition={{ duration: 0.6, ease: "easeInOut" }}
+                          className="text-base md:text-lg text-gray-200 leading-relaxed"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 0.6 }}
                         >
-                          {selectedProject.subtitle}
+                          {selectedProject.description}
                         </motion.p>
-                      </motion.div>
 
-                      <motion.p
-                        className="text-lg text-gray-200 leading-relaxed"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.6 }}
-                      >
-                        {selectedProject.description}
-                      </motion.p>
+                        <motion.div
+                          className="flex flex-col"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.7, duration: 0.6 }}
+                        >
+                          <div>What we Did for them:</div>
+                          <div className="flex items-center gap-2 flex-wrap ">
+                            {selectedProject.tags.map((tag, tagIndex) => (
+                              <motion.span
+                                key={tagIndex}
+                                className="px-3 pr-4 py-1 bg-white/10 text-white rounded-full text-sm backdrop-blur-sm border border-white/20"
+                                whileHover={{
+                                  scale: 1.05,
+                                  backgroundColor: "rgba(255,255,255,0.2)",
+                                }}
+                              >
+                                {tag}
+                              </motion.span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                {/* Additional Details Section */}
+                <motion.div
+                  className="bg-white/5 backdrop-blur-sm p-6 md:p-8 border-t border-white/10"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.1, duration: 0.6 }}
+                >
+                  <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-white">
                       <motion.div
-                        className="flex flex-wrap gap-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7, duration: 0.6 }}
+                        transition={{ delay: 1.3, duration: 0.6 }}
                       >
-                        {selectedProject.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-3 py-1 bg-white/10 text-white rounded-full text-sm backdrop-blur-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                        <h3 className="text-lg font-semibold mb-3 text-purple-400">
+                          Challenge
+                        </h3>
+                        <p className="text-gray-300 text-sm md:text-base">
+                          Creating an innovative solution that pushes the
+                          boundaries of user experience while maintaining
+                          accessibility and performance standards.
+                        </p>
                       </motion.div>
-
-                      {/* <motion.div
-                        className="pt-6"
+                      <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.9, duration: 0.6 }}
+                        transition={{ delay: 1.4, duration: 0.6 }}
                       >
-                        <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-                          View Case Study
-                        </button>
-                      </motion.div> */}
+                        <h3 className="text-lg font-semibold mb-3 text-blue-400">
+                          Solution
+                        </h3>
+                        <p className="text-gray-300 text-sm md:text-base">
+                          Implemented cutting-edge technologies and design
+                          principles to deliver a seamless, intuitive experience
+                          that exceeds user expectations.
+                        </p>
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.5, duration: 0.6 }}
+                      >
+                        <h3 className="text-lg font-semibold mb-3 text-green-400">
+                          Result
+                        </h3>
+                        <p className="text-gray-300 text-sm md:text-base">
+                          Achieved significant improvements in user engagement,
+                          conversion rates, and overall satisfaction while
+                          setting new industry standards.
+                        </p>
+                      </motion.div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-
-              {/* Additional Details Section */}
-              <motion.div
-                className="bg-white/5 backdrop-blur-sm p-8"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.6 }}
-              >
-                <div className="max-w-6xl mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
-                    <div>
-                      <h3 className="text-lg font-semibold mb-3">Challenge</h3>
-                      <p className="text-gray-300">
-                        Creating an innovative solution that pushes the
-                        boundaries of user experience while maintaining
-                        accessibility and performance standards.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold mb-3">Solution</h3>
-                      <p className="text-gray-300">
-                        Implemented cutting-edge technologies and design
-                        principles to deliver a seamless, intuitive experience
-                        that exceeds user expectations.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold mb-3">Result</h3>
-                      <p className="text-gray-300">
-                        Achieved significant improvements in user engagement,
-                        conversion rates, and overall satisfaction while setting
-                        new industry standards.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </div>

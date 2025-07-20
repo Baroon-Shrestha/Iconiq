@@ -37,7 +37,7 @@ export default function ContactForm() {
     e.preventDefault();
 
     // Your WhatsApp number with country code for Nepal (977)
-    const phoneNumber = "9779812345678";
+    const phoneNumber = "9779864687572";
 
     // Build WhatsApp message
     const whatsappMessage = `

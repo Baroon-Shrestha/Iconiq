@@ -19,7 +19,7 @@ const clientsData = [
   },
   {
     id: 4,
-    title: "Kings Motors",
+    title: "King Motors",
     description: "Vehicles Recondition and services",
   },
   {

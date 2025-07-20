@@ -50,9 +50,7 @@ export default function Pricing() {
         "Professional website design with SEO optimization, regular updates, and ongoing maintenance.",
       features: [
         "Fully responsive design",
-        "SEO optimization",
         "Regular updates",
-        "Speed optimization",
         "6 months maintenance",
         "Content management system",
       ],
@@ -72,7 +70,6 @@ export default function Pricing() {
       features: [
         "Logo design",
         "Brand colors & typography",
-        "Tone & voice setup",
         "Brand guideline document",
         "Visual identity setup",
       ],
@@ -91,7 +88,6 @@ export default function Pricing() {
         "High-quality post and reel creation, viral campaign planning, and audience engagement tactics.",
       features: [
         "Post & reel creation",
-        "Viral campaign planning",
         "Audience targeting",
         "Engagement strategies",
         "Growth optimization",
@@ -113,7 +109,6 @@ export default function Pricing() {
         "Facebook & Instagram ads",
         "Campaign setup",
         "Budget optimization",
-        "A/B testing",
         "Performance tracking",
       ],
       badge: "Performance",

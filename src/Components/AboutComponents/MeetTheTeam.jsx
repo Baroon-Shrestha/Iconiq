@@ -77,14 +77,14 @@ export default function MeetTheTeam() {
       socialLinks: [
         {
           icon: Linkedin,
-          url: "#",
+          url: "https://www.linkedin.com/in/abiral-poudel-5071472b4/?trk=opento_sprofile_details",
           label: "LinkedIn",
           color: "hover:bg-blue-600",
           color2: "hover:text-white",
         },
         {
           icon: FaBehance,
-          url: "#",
+          url: "https://www.behance.net/abiralpoudel",
           label: "Behance",
           color: "hover:bg-blue-500",
           color2: "hover:text-white",
@@ -131,14 +131,14 @@ export default function MeetTheTeam() {
       socialLinks: [
         {
           icon: Linkedin,
-          url: "#",
+          url: "https://www.linkedin.com/in/baroon-shrestha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
           label: "LinkedIn",
           color: "hover:bg-blue-600",
           color2: "hover:text-white",
         },
         {
           icon: Github,
-          url: "#",
+          url: "https://github.com/Baroon-Shrestha?tab=repositories",
           label: "GitHub",
           color: "hover:bg-gray-700",
           color2: "hover:text-white",
@@ -168,7 +168,7 @@ export default function MeetTheTeam() {
         },
         {
           icon: Github,
-          url: "#",
+          url: "https://github.com/lamichhanesara00?tab=repositories",
           label: "GitHub",
           color: "hover:bg-gray-700",
           color2: "hover:text-white",

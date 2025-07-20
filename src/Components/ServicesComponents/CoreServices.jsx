@@ -118,7 +118,7 @@ export default function CoreServices() {
           {CoreServicesData.map((item, index) => (
             <div
               key={item.id}
-              className="grid grid-cols-1 md:grid-cols-2 gap- items-start"
+              className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
               ref={(el) => (wrapperRefs.current[index] = el)}
             >
               {/* Left (pinned per section on desktop, normal flow on mobile) */}
