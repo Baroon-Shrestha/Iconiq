@@ -221,7 +221,7 @@ export default function Clients() {
                 {/* Client Logo/Title */}
                 <div className="relative z-10">
                   <h3
-                    className={`text-2xl md:text-3xl font-bold logo transition-all duration-300 ${
+                    className={`text-lg md:text-3xl font-bold logo transition-all duration-300 ${
                       hoveredClient === client.id
                         ? `bg-gradient-to-r ${client.color} text-transparent bg-clip-text`
                         : "text-gray-700 group-hover:text-gray-900"
